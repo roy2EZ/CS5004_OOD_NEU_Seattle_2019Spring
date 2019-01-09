@@ -5,15 +5,15 @@
  *
  */
 public class Author {
-    private String	name;
-    private String	email;
-    private String	address;
+    private String name;
+    private String email;
+    private String address;
     /**
-     *	Creates	a	new	author	given	the	author's	name,	email	and	address	as	strings.
+     *	Creates	a new author given the author's	name, email	and	address	as strings.
      *
-     *	@param	name	the	author's	name
-     *	@param	email	the	author's	email	address
-     *	@param	address	the	authors	physical	address
+     *	@param	name	the	author's name
+     *	@param	email	the	author's email address
+     *	@param	address	the	authors	physical address
      */
     public Author(String name, String email, String	address) {
         this.name = name;
