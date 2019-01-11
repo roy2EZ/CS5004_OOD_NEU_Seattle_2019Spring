@@ -11,14 +11,14 @@ public class Author {
     /**
      *	Creates	a new author given the author's	name, email	and	address	as strings.
      *
-     *	@param	name	the	author's name
-     *	@param	email	the	author's email address
-     *	@param	address	the	authors	physical address
+     *	@param name the	author's name
+     *	@param email the author's email address
+     *	@param address the authors physical address
      */
-    public Author(String name, String email, String	address) {
-        this.name = name;
-        this.email = email;
-        this.address = address;
+    public Author(Person person, Email email, Address address) {
+        this.name = person.getFullname();
+        this.email = email.getEmail();
+        this.address = address.getAddress();
     }
     /**
      *	@return	the	name
