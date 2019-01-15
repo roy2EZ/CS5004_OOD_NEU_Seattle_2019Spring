@@ -18,7 +18,7 @@ public class VehicleTest {
 
     @Test
     public void getVIN() {
-        assertEquals(myCar.getVIN(), java.util.Optional.of(1234));
+        assertEquals(myCar.getVIN(), 1234);
     }
 
     @Test
@@ -34,7 +34,7 @@ public class VehicleTest {
     @Test
     public void setVIN() {
         myCar.setVIN(5678);
-        assertEquals(myCar.getVIN(), java.util.Optional.of(5678));
+        assertEquals(myCar.getVIN(), 5678);
     }
 
     @Test
