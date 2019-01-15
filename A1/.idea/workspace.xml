@@ -12,20 +12,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Problem1/VehicleTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#384#385#0" expanded="true" />
-                <element signature="e#443#444#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Problem2/Time.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
@@ -34,11 +20,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Problem2/TimeTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="33" column="56" selection-start-line="33" selection-start-column="56" selection-end-line="33" selection-end-column="56" />
+            <state relative-caret-position="-182">
+              <caret line="9" column="25" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#290#291#0" expanded="true" />
@@ -55,19 +41,35 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Problem1/OwnerTest.java">
+        <entry file="file://$PROJECT_DIR$/src/Problem2/Bicyclist.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+            <state relative-caret-position="124">
+              <caret line="34" column="48" selection-start-line="34" selection-start-column="48" selection-end-line="34" selection-end-column="48" />
+              <folding>
+                <element signature="e#383#384#0" expanded="true" />
+                <element signature="e#410#411#0" expanded="true" />
+                <element signature="e#441#442#0" expanded="true" />
+                <element signature="e#468#469#0" expanded="true" />
+                <element signature="e#386#387#0" expanded="true" />
+                <element signature="e#418#419#0" expanded="true" />
+                <element signature="e#450#451#0" expanded="true" />
+                <element signature="e#480#481#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Problem2/Bicyclist.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Problem2/BicyclistTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            <state relative-caret-position="192">
+              <caret line="47" column="16" lean-forward="true" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="16" />
+              <folding>
+                <element signature="e#485#486#0" expanded="true" />
+                <element signature="e#505#506#0" expanded="true" />
+                <element signature="e#591#592#0" expanded="true" />
+                <element signature="e#640#641#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -89,6 +91,8 @@
       <list>
         <option value="$PROJECT_DIR$/src/Problem1/VehicleTest.java" />
         <option value="$PROJECT_DIR$/src/Problem2/TimeTest.java" />
+        <option value="$PROJECT_DIR$/src/Problem2/BicyclistTest.java" />
+        <option value="$PROJECT_DIR$/src/Problem2/Bicyclist.java" />
       </list>
     </option>
   </component>
@@ -142,7 +146,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547534117078" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547535517868" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers" value="true" />
@@ -174,22 +178,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TimeTest">
-    <configuration name="OwnerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="A1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Problem1.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Problem1" />
-      <option name="MAIN_CLASS_NAME" value="Problem1.OwnerTest" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TimeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.BicyclistTest.getDuration">
+    <configuration name="BicyclistTest.getDuration" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="A1" />
       <extension name="coverage">
         <pattern>
@@ -198,28 +188,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Problem2" />
-      <option name="MAIN_CLASS_NAME" value="Problem2.TimeTest" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TimeTest.getHour" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="A1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Problem2.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Problem2" />
-      <option name="MAIN_CLASS_NAME" value="Problem2.TimeTest" />
-      <option name="METHOD_NAME" value="getHour" />
+      <option name="MAIN_CLASS_NAME" value="Problem2.BicyclistTest" />
+      <option name="METHOD_NAME" value="getDuration" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TimeTest.getTotalSec" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BicyclistTest.getEndTime" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="A1" />
       <extension name="coverage">
         <pattern>
@@ -228,34 +204,68 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Problem2" />
-      <option name="MAIN_CLASS_NAME" value="Problem2.TimeTest" />
-      <option name="METHOD_NAME" value="getTotalSec" />
+      <option name="MAIN_CLASS_NAME" value="Problem2.BicyclistTest" />
+      <option name="METHOD_NAME" value="getEndTime" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="VehicleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BicyclistTest.getName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="A1" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Problem1.*" />
+          <option name="PATTERN" value="Problem2.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="Problem1" />
-      <option name="MAIN_CLASS_NAME" value="Problem1.VehicleTest" />
+      <option name="PACKAGE_NAME" value="Problem2" />
+      <option name="MAIN_CLASS_NAME" value="Problem2.BicyclistTest" />
+      <option name="METHOD_NAME" value="getName" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BicyclistTest.getStartTime" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="A1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Problem2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Problem2" />
+      <option name="MAIN_CLASS_NAME" value="Problem2.BicyclistTest" />
+      <option name="METHOD_NAME" value="getStartTime" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BicyclistTest.getTeam" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="A1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Problem2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Problem2" />
+      <option name="MAIN_CLASS_NAME" value="Problem2.BicyclistTest" />
+      <option name="METHOD_NAME" value="getTeam" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TimeTest" />
-        <item itemvalue="JUnit.TimeTest.getTotalSec" />
-        <item itemvalue="JUnit.VehicleTest" />
-        <item itemvalue="JUnit.OwnerTest" />
-        <item itemvalue="JUnit.TimeTest.getHour" />
+        <item itemvalue="JUnit.BicyclistTest.getDuration" />
+        <item itemvalue="JUnit.BicyclistTest.getEndTime" />
+        <item itemvalue="JUnit.BicyclistTest.getStartTime" />
+        <item itemvalue="JUnit.BicyclistTest.getTeam" />
+        <item itemvalue="JUnit.BicyclistTest.getName" />
       </list>
     </recent_temporary>
   </component>
@@ -270,44 +280,44 @@
       <option name="presentableId" value="Default" />
       <updated>1547532765813</updated>
       <workItem from="1547532772180" duration="258000" />
-      <workItem from="1547533112416" duration="991000" />
+      <workItem from="1547533112416" duration="2366000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="VehicleTest - 2019.01.15 at 01h 28m 26s.xml">
-      <configuration name="VehicleTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="VehicleTest - 2019.01.15 at 01h 28m 38s.xml">
-      <configuration name="VehicleTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TimeTest_getHour - 2019.01.15 at 01h 28m 57s.xml">
-      <configuration name="TimeTest.getHour" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TimeTest_getHour - 2019.01.15 at 01h 33m 16s.xml">
-      <configuration name="TimeTest.getHour" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TimeTest_getHour - 2019.01.15 at 01h 33m 26s.xml">
-      <configuration name="TimeTest.getHour" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="OwnerTest - 2019.01.15 at 01h 33m 41s.xml">
-      <configuration name="OwnerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="VehicleTest - 2019.01.15 at 01h 33m 53s.xml">
-      <configuration name="VehicleTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TimeTest - 2019.01.15 at 01h 34m 06s.xml">
-      <configuration name="TimeTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="TimeTest_getTotalSec - 2019.01.15 at 01h 35m 08s.xml">
       <configuration name="TimeTest.getTotalSec" configurationId="JUnit" />
     </history-entry>
     <history-entry file="TimeTest - 2019.01.15 at 01h 35m 14s.xml">
       <configuration name="TimeTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="BicyclistTest_getName - 2019.01.15 at 01h 47m 15s.xml">
+      <configuration name="BicyclistTest.getName" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BicyclistTest_getTeam - 2019.01.15 at 01h 48m 00s.xml">
+      <configuration name="BicyclistTest.getTeam" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BicyclistTest_getStartTime - 2019.01.15 at 01h 49m 14s.xml">
+      <configuration name="BicyclistTest.getStartTime" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BicyclistTest_getStartTime - 2019.01.15 at 01h 49m 56s.xml">
+      <configuration name="BicyclistTest.getStartTime" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BicyclistTest_getStartTime - 2019.01.15 at 01h 51m 32s.xml">
+      <configuration name="BicyclistTest.getStartTime" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BicyclistTest_getEndTime - 2019.01.15 at 01h 52m 25s.xml">
+      <configuration name="BicyclistTest.getEndTime" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BicyclistTest_getDuration - 2019.01.15 at 01h 56m 15s.xml">
+      <configuration name="BicyclistTest.getDuration" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BicyclistTest_getDuration - 2019.01.15 at 01h 58m 21s.xml">
+      <configuration name="BicyclistTest.getDuration" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1249000" />
+    <option name="totallyTimeSpent" value="2624000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -348,20 +358,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Problem2/Time.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Problem2/Bicyclist.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Problem1/OwnerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -381,10 +377,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Problem2/Time.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12.jar!/org/junit/Assert.class">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Problem2/TimeTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="33" column="56" selection-start-line="33" selection-start-column="56" selection-end-line="33" selection-end-column="56" />
+        <state relative-caret-position="-182">
+          <caret line="9" column="25" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#290#291#0" expanded="true" />
@@ -395,6 +401,36 @@
             <element signature="e#523#524#0" expanded="true" />
             <element signature="e#585#586#0" expanded="true" />
             <element signature="e#615#616#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Problem2/Bicyclist.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="34" column="48" selection-start-line="34" selection-start-column="48" selection-end-line="34" selection-end-column="48" />
+          <folding>
+            <element signature="e#383#384#0" expanded="true" />
+            <element signature="e#410#411#0" expanded="true" />
+            <element signature="e#441#442#0" expanded="true" />
+            <element signature="e#468#469#0" expanded="true" />
+            <element signature="e#386#387#0" expanded="true" />
+            <element signature="e#418#419#0" expanded="true" />
+            <element signature="e#450#451#0" expanded="true" />
+            <element signature="e#480#481#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Problem2/BicyclistTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="47" column="16" lean-forward="true" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="16" />
+          <folding>
+            <element signature="e#485#486#0" expanded="true" />
+            <element signature="e#505#506#0" expanded="true" />
+            <element signature="e#591#592#0" expanded="true" />
+            <element signature="e#640#641#0" expanded="true" />
           </folding>
         </state>
       </provider>
