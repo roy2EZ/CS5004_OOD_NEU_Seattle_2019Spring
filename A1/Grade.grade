@@ -1,0 +1,13 @@
+-1 expected and actual in tests are reversed
+
+-1 create Integers in your test class rather than casting primitive int
+
+In getDuration  make one call to getTotalSec() and create a local
+variable rather than 3 calls. Not taking off points just comment.
+
+-1 withdraw and getAmount are mixing the use of setters and immutability.
+You need to go look at what you are actually doing with those functions
+and understand why it is not a good idea. You use setters to change Dollars
+and Cents for the amount and return an Amount object that is never used.
+
+97/100
