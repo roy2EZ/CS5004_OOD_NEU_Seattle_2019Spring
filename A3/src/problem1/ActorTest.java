@@ -8,6 +8,7 @@ import org.junit.Test;
 
 public class ActorTest {
   private Actor scarJo;
+  private String[] scarJoGenre;
   private String[] scarJoAwards;
   private ArtWork scarJoArtWork;
   private String[] scarJoMovies;
@@ -16,6 +17,7 @@ public class ActorTest {
 
   @Before
   public void setUp() throws Exception {
+    scarJoGenre = new String[]{"Actress", "Singer"};
     scarJoAwards = new String[] {"British Academy Film Awards for Best actress 2003",
         "Toronto Film Critics Association Award for Best Supporting Actress 2001",
         "Boston Society of Film Critics Award for Best Actress 2003",
@@ -24,7 +26,7 @@ public class ActorTest {
     scarJoSeries = new String[] {"HitRecord on TV", "Entourage"};
     scarJoMedia = new String[] {"Cat on a Hot Tin Roof", "A View from the Bridge"};
     scarJoArtWork = new ArtWork(scarJoMovies, scarJoSeries, scarJoMedia);
-    scarJo = new Actor("Scarlett Johansson", 34, "1996 - current", new String[]{"Actress", "Singer"}, scarJoAwards, scarJoArtWork);
+    scarJo = new Actor("Scarlett Johansson", 34, "1996 - current", scarJoGenre, scarJoAwards, scarJoArtWork);
   }
 
   @Test
@@ -36,6 +38,11 @@ public class ActorTest {
   public void getAge() {
     Integer EXPECTED_AGE = 34;
     Assert.assertEquals(EXPECTED_AGE, scarJo.getAge());
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void invalidAge() {
+    Actor invalidAge = new Actor("test", 500, "test", scarJoGenre,scarJoAwards, scarJoArtWork);
   }
 
   @Test
@@ -65,21 +72,21 @@ public class ActorTest {
 
   @Test
   public void getActorArtWork() {
-    Assert.assertEquals(scarJoArtWork, scarJo.getActorArtWork());
-    Assert.assertArrayEquals(scarJoMovies, scarJo.getActorArtWork().getMovies());
-    Assert.assertEquals("Lucy", scarJo.getActorArtWork().getMovies()[2]);
-    Assert.assertArrayEquals(scarJoSeries, scarJo.getActorArtWork().getSeries());
-    Assert.assertEquals("Entourage", scarJo.getActorArtWork().getSeries()[1]);
-    Assert.assertArrayEquals(scarJoMedia, scarJo.getActorArtWork().getOtherMedia());
-    Assert.assertEquals("Cat on a Hot Tin Roof", scarJo.getActorArtWork().getOtherMedia()[0]);
+    assertEquals(scarJoArtWork, scarJo.getArtWork());
+    assertArrayEquals(scarJoMovies, scarJo.getArtWork().getMovies());
+    assertEquals("Lucy", scarJo.getArtWork().getMovies()[2]);
+    assertArrayEquals(scarJoSeries, scarJo.getArtWork().getSeries());
+    assertEquals("Entourage", scarJo.getArtWork().getSeries()[1]);
+    assertArrayEquals(scarJoMedia, scarJo.getArtWork().getOtherMedia());
+    assertEquals("Cat on a Hot Tin Roof", scarJo.getArtWork().getOtherMedia()[0]);
     for (int i = 0; i < scarJoMovies.length; i++) {
-      Assert.assertEquals(scarJoMovies[i], scarJo.getActorArtWork().getMovies()[i]);
+      assertEquals(scarJoMovies[i], scarJo.getArtWork().getMovies()[i]);
     }
     for (int i = 0; i < scarJoSeries.length; i++) {
-      Assert.assertEquals(scarJoSeries[i], scarJo.getActorArtWork().getSeries()[i]);
+      assertEquals(scarJoSeries[i], scarJo.getArtWork().getSeries()[i]);
     }
     for (int i = 0; i < scarJoMedia.length; i++) {
-      Assert.assertEquals(scarJoMedia[i], scarJo.getActorArtWork().getOtherMedia()[i]);
+      assertEquals(scarJoMedia[i], scarJo.getArtWork().getOtherMedia()[i]);
     }
 
   }
