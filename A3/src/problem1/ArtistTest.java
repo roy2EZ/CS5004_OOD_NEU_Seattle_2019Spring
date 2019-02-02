@@ -25,8 +25,8 @@ public class ArtistTest {
 
   @Test
   public void GetAge() {
-    Integer exceptedAge = 31;
-    Assert.assertEquals(exceptedAge, roy.getAge());
+    Integer EXPECTED_AGE = 31;
+    Assert.assertEquals(EXPECTED_AGE, roy.getAge());
   }
 
   @Test(expected = IllegalArgumentException.class)
