@@ -1,7 +1,8 @@
 package problem1;
 
 /**
- * represents an Actor which is a subclass of Artist with all Artist's parameters
+ * represents an Musician which is a subclass of AbstractArtistWithWork
+ * with all artist's parameters and an ArtWork class with his art works
  */
 public class Musician extends AbstractArtist {
 

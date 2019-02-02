@@ -42,7 +42,7 @@ public class ActorTest {
 
   @Test(expected = IllegalArgumentException.class)
   public void invalidAge() {
-    Actor invalidAge = new Actor("test", 500, "test", scarJoGenre,scarJoAwards, scarJoArtWork);
+    Actor invalidAgeActor = new Actor("test", 500, "test", scarJoGenre,scarJoAwards, scarJoArtWork);
   }
 
   @Test

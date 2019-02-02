@@ -31,6 +31,11 @@ public class MusicianTest {
     Assert.assertEquals(EXPECTED_AGE, davidTao.getAge());
   }
 
+  @Test(expected = IllegalArgumentException.class)
+  public void invalidAge() {
+    Musician invalidAgeMusician = new Musician("test", 500, "test", davidTaoGenre,getDavidTaoAwards);
+  }
+
   @Test
   public void getActive() {
     Assert.assertEquals("1997 - present", davidTao.getActive());

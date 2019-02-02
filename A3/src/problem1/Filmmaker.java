@@ -1,10 +1,10 @@
 package problem1;
 
 /**
- * represents an Photographer which is a subclass of AbstractArtistWithWork
+ * represents an Filmmaker which is a subclass of AbstractArtistWithWork
  * with all artist's parameters and an ArtWork class with his art works
  */
-public class Photographer extends AbstractArtist {
+public class Filmmaker extends AbstractArtistWithWork {
 
   /**
    * @param name the artist's name
@@ -12,8 +12,10 @@ public class Photographer extends AbstractArtist {
    * @param active the artist's active period, for example "1982 - 1994"
    * @param genre the artist's genre, for example "Performing Art"
    * @param awards the awards which the artist achieved
+   * @param artWork the artist's art works
    */
-  public Photographer(String name, Integer age, String active, String[] genre, String[] awards) {
-    super(name, age, active, genre, awards);
+  public Filmmaker(String name, Integer age, String active, String[] genre,
+      String[] awards, ArtWork artWork) {
+    super(name, age, active, genre, awards, artWork);
   }
 }
