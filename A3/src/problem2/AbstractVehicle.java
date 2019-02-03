@@ -1,6 +1,9 @@
 package problem2;
 
 
+/**
+ * Represent vehicle with its color, make and model, license plate info, velocity and direction
+ */
 public abstract class AbstractVehicle implements IVehicle {
   protected String color;
   protected MakeAndModel makeAndModel;
