@@ -11,32 +11,45 @@ public class MotorcycleTest {
 
   @Before
   public void setUp() throws Exception {
-    testMakeAndModel = new MakeAndModel("Honda", "CRV");
+    testMakeAndModel = new MakeAndModel("testMake", "testModel");
     testLicense = new License("WA", "BJD1601", "FEB 2019");
     testVehicle = new Motorcycle("testColor", testMakeAndModel,
         testLicense, 50, Direction.EASTBOUND);
   }
 
+  // getters test --------------------------------------------------------------------------
   @Test
   public void getColor() {
+    Assert.assertEquals("testColor", testVehicle.color);
   }
 
   @Test
   public void getMakeAndModel() {
+    Assert.assertEquals( testMakeAndModel, testVehicle.getMakeAndModel());
+    Assert.assertEquals("testMake", testVehicle.getMakeAndModel().getMake());
+    Assert.assertEquals("testModel", testVehicle.getMakeAndModel().getModel());
   }
 
   @Test
   public void getLicense() {
+    Assert.assertEquals(testLicense, testVehicle.getLicense());
+    Assert.assertEquals("WA", testVehicle.getLicense().getState());
+    Assert.assertEquals("BJD1601", testVehicle.getLicense().getLicenseNum());
+    Assert.assertEquals("FEB 2019", testVehicle.getLicense().getExpiration());
   }
 
   @Test
   public void getVelocity() {
+    Integer EXPECTED_V = 50;
+    Assert.assertEquals(EXPECTED_V, testVehicle.getVelocity());
   }
 
   @Test
   public void getDirection() {
+    Assert.assertEquals(Direction.EASTBOUND, testVehicle.getDirection());
   }
 
+  // test accelerate() testcase --------------------------------------------------------------
   @Test
   public void accelerate() throws Exception {
     testVehicle.accelerate(20);
@@ -54,6 +67,7 @@ public class MotorcycleTest {
     testVehicle.accelerate(5);
   }
 
+  // decelerate() related testcase ------------------------------------------------------------
   @Test
   public void decelerate() throws Exception {
     testVehicle.decelerate(20);
@@ -70,15 +84,14 @@ public class MotorcycleTest {
   public void invalidDecFactor() throws Exception {
     testVehicle.decelerate(10000);
   }
-
-
-
+  // velocity range test ----------------------------------------------------------------------
   @Test(expected = Exception.class)
   public void invalidVelocity() {
     Motorcycle testVehicle2 = new Motorcycle("testColor", testMakeAndModel,
         testLicense, 1000, Direction.EASTBOUND);
   }
 
+  // directionChange() related test -----------------------------------------------------------
   @Test
   public void directionChange() throws Exception {
     testVehicle.directionChange(Direction.WESTBOUND);
