@@ -1,13 +1,14 @@
 package problem2;
 
+import static org.junit.Assert.*;
 import static problem2.Direction.*;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class MotorcycleTest {
-  private Motorcycle testVehicle;
+public class AutomobileTest {
+  private Automobile testVehicle;
   private MakeAndModel testMakeAndModel;
   private License testLicense;
 
@@ -15,10 +16,9 @@ public class MotorcycleTest {
   public void setUp() throws Exception {
     testMakeAndModel = new MakeAndModel("testMake", "testModel");
     testLicense = new License("WA", "BJD1601", "FEB 2019");
-    testVehicle = new Motorcycle("testColor", testMakeAndModel,
+    testVehicle = new Automobile("testColor", testMakeAndModel,
         testLicense, 50, EASTBOUND);
   }
-
   // getters test --------------------------------------------------------------------------
   @Test
   public void getColor() {
@@ -34,7 +34,14 @@ public class MotorcycleTest {
 
   @Test
   public void getLicense() {
-    AutomobileTest.testLicense(testLicense, testVehicle.getLicense());
+    testLicense(testLicense, testVehicle.getLicense());
+  }
+
+  static void testLicense(License testLicense, License license) {
+    Assert.assertEquals(testLicense, license);
+    Assert.assertEquals("WA", license.getState());
+    Assert.assertEquals("BJD1601", license.getLicenseNum());
+    Assert.assertEquals("FEB 2019", license.getExpiration());
   }
 
   @Test
@@ -51,20 +58,21 @@ public class MotorcycleTest {
   // test accelerate() testcase --------------------------------------------------------------
   @Test
   public void accelerate() throws Exception {
-    testVehicle.accelerate(20);
-    Integer newSpeed = 60;
+    testVehicle.accelerate(30);
+    Integer newSpeed = 65;
     Assert.assertEquals(newSpeed, testVehicle.getVelocity());
   }
 
   @Test(expected = Exception.class)
   public void invalidAccelerate() throws Exception {
-    testVehicle.accelerate(40);
+    testVehicle.accelerate(90);
   }
 
   @Test(expected = Exception.class)
   public void invalidAccFactor() throws Exception {
     testVehicle.accelerate(5);
   }
+
 
   // decelerate() related testcase ------------------------------------------------------------
   @Test
@@ -83,10 +91,11 @@ public class MotorcycleTest {
   public void invalidDecFactor() throws Exception {
     testVehicle.decelerate(10000);
   }
+
   // velocity range test ----------------------------------------------------------------------
   @Test(expected = Exception.class)
   public void invalidVelocity() {
-    Motorcycle testVehicle2 = new Motorcycle("testColor", testMakeAndModel,
+    Automobile testVehicle2 = new Automobile("testColor", testMakeAndModel,
         testLicense, 1000, EASTBOUND);
   }
 
