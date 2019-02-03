@@ -8,8 +8,9 @@ package problem1;
  * @author Rongyi Chen
  * @version 1.0
  */
-public class AbstractArtistWithWork extends AbstractArtist {
-  private ArtWork artWork;
+public abstract class AbstractArtistWithWork extends AbstractArtist {
+
+  protected ArtWork artWork;
 
   /**
    * @param name the artist's name
@@ -20,7 +21,7 @@ public class AbstractArtistWithWork extends AbstractArtist {
    * @param artWork the artist's art works
    * @throws IllegalArgumentException exception for if the age out of valid range
    */
-  public AbstractArtistWithWork(String name, Integer age, String active, String[] genre,
+  protected AbstractArtistWithWork(String name, Integer age, String active, String[] genre,
       String[] awards, ArtWork artWork) {
     super(name, age, active, genre, awards);
     this.artWork = artWork;

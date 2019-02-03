@@ -7,7 +7,7 @@ package problem1;
  * @author Rongyi Chen
  * @version 1.0
  */
-public class AbstractArtist implements IArtist {
+public abstract class AbstractArtist implements IArtist {
 
   private String name;
   private Integer age;
@@ -23,7 +23,7 @@ public class AbstractArtist implements IArtist {
    * @param awards the awards which the artist achieved
    * @throws IllegalArgumentException exception for if the age out of valid range
    */
-  public AbstractArtist(String name, Integer age, String active, String[] genre, String[] awards) {
+  protected AbstractArtist(String name, Integer age, String active, String[] genre, String[] awards) {
     this.name = name;
     if (age >= MIN_AGE && age <= MAX_AGE) {
       this.age = age;
