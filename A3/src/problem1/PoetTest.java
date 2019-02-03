@@ -4,32 +4,17 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class DancerTest {
-  private Dancer tester;
+public class PoetTest {
+  private Poet tester;
   private String[] testerGenre;
   private String[] testerAwards;
-  private ArtWork testerArtWorks;
-  private String[] testerMovies;
-  private String[] testerSeries;
-  private String[] testerOtherMedia;
+
 
   @Before
   public void setUp() throws Exception {
     testerGenre = new String[] {"Genre1", "Genre2", "Genre3"};
     testerAwards = new String[] {"Awards1", "Awards2", "Awards3", "Awards4"};
-    testerMovies = new String[] {"Movie1", "Movie2"};
-    testerSeries = new String[] {"TV1", "TV2", "TV3"};
-    testerOtherMedia = new String[] {"YouTube", "Netflix"};
-    testerArtWorks = new ArtWork(testerMovies, testerSeries, testerOtherMedia);
-    tester = new Dancer("testName", 30, "1979 - 1995",
-        testerGenre, testerAwards, testerArtWorks);
-  }
-
-  @Test
-  public void getArtWork() {
-    Assert.assertEquals(testerArtWorks, tester.getArtWork());
-    Assert.assertArrayEquals(testerMovies, tester.getArtWork().getMovies());
-    Assert.assertEquals("TV1", tester.getArtWork().getSeries()[0]);
+    tester = new Poet("testName", 30, "1979 - 1995",testerGenre, testerAwards);
   }
 
   @Test
@@ -45,9 +30,10 @@ public class DancerTest {
 
   @Test(expected = IllegalArgumentException.class)
   public void invalidAge() {
-    Dancer invalidAgeTester = new Dancer("testName", 500, "1979 - 1995",
-        testerGenre,testerAwards, testerArtWorks);
+    Poet invalidAgeTester = new Poet("testName", 500, "1979 - 1995",
+        testerGenre,testerAwards);
   }
+
   @Test
   public void getActive() {
     Assert.assertEquals("1979 - 1995", tester.getActive());
@@ -58,6 +44,7 @@ public class DancerTest {
     Assert.assertArrayEquals(testerGenre, tester.getGenre());
     Assert.assertEquals("Genre3", tester.getGenre()[2]);
   }
+
 
   @Test
   public void getAwards() {

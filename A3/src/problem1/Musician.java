@@ -1,8 +1,7 @@
 package problem1;
 
 /**
- * represents an Musician which is a subclass of AbstractArtistWithWork
- * with all artist's parameters and an ArtWork class with his art works
+ * represents an Musician which is a subclass of AbstractArtist with all artist's parameters
  */
 public class Musician extends AbstractArtist {
 
@@ -12,6 +11,7 @@ public class Musician extends AbstractArtist {
    * @param active the artist's active period, for example "1982 - 1994"
    * @param genre the artist's genre, for example "Performing Art"
    * @param awards the awards which the artist achieved
+   * @throws IllegalArgumentException exception for if the age out of valid range
    */
   public Musician(String name, Integer age, String active, String[] genre, String[] awards) {
     super(name, age, active, genre, awards);

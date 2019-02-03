@@ -18,6 +18,7 @@ public class AbstractArtistWithWork extends AbstractArtist {
    * @param genre the artist's genre, for example "Performing Art"
    * @param awards the awards which the artist achieved
    * @param artWork the artist's art works
+   * @throws IllegalArgumentException exception for if the age out of valid range
    */
   public AbstractArtistWithWork(String name, Integer age, String active, String[] genre,
       String[] awards, ArtWork artWork) {
