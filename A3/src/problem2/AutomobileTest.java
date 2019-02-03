@@ -1,6 +1,6 @@
 package problem2;
 
-import static org.junit.Assert.*;
+
 import static problem2.Direction.*;
 
 import org.junit.Assert;
