@@ -34,7 +34,7 @@ public class MotorcycleTest {
 
   @Test
   public void getLicense() {
-    AutomobileTest.testLicense(testLicense, testVehicle.getLicense());
+    Assert.assertEquals(testLicense, testVehicle.getLicense());
   }
 
   @Test

@@ -10,7 +10,7 @@ import org.junit.Test;
 public class BusTest {
   private Bus testVehicle;
   private MakeAndModel testMakeAndModel;
-  private License testLicense;
+  private static License testLicense;
 
   @Before
   public void setUp() throws Exception {
@@ -34,15 +34,9 @@ public class BusTest {
 
   @Test
   public void getLicense() {
-    testLicense(testLicense, testVehicle.getLicense());
+    Assert.assertEquals(testLicense, testVehicle.getLicense());
   }
 
-  static void testLicense(License testLicense, License license) {
-    Assert.assertEquals(testLicense, license);
-    Assert.assertEquals("WA", license.getState());
-    Assert.assertEquals("BJD1601", license.getLicenseNum());
-    Assert.assertEquals("FEB 2019", license.getExpiration());
-  }
 
   @Test
   public void getVelocity() {
