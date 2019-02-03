@@ -1,14 +1,14 @@
 package problem2;
 
-
+import static org.junit.Assert.*;
 import static problem2.Direction.*;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class AutomobileTest {
-  private Automobile testVehicle;
+public class BusTest {
+  private Bus testVehicle;
   private MakeAndModel testMakeAndModel;
   private License testLicense;
 
@@ -16,7 +16,7 @@ public class AutomobileTest {
   public void setUp() throws Exception {
     testMakeAndModel = new MakeAndModel("testMake", "testModel");
     testLicense = new License("WA", "BJD1601", "FEB 2019");
-    testVehicle = new Automobile("testColor", testMakeAndModel,
+    testVehicle = new Bus("testColor", testMakeAndModel,
         testLicense, 50, EASTBOUND);
   }
   // getters test --------------------------------------------------------------------------
@@ -38,7 +38,10 @@ public class AutomobileTest {
   }
 
   static void testLicense(License testLicense, License license) {
-    BusTest.testLicense(testLicense, license);
+    Assert.assertEquals(testLicense, license);
+    Assert.assertEquals("WA", license.getState());
+    Assert.assertEquals("BJD1601", license.getLicenseNum());
+    Assert.assertEquals("FEB 2019", license.getExpiration());
   }
 
   @Test
@@ -55,8 +58,8 @@ public class AutomobileTest {
   // test accelerate() testcase --------------------------------------------------------------
   @Test
   public void accelerate() throws Exception {
-    testVehicle.accelerate(30);
-    Integer newSpeed = 65;
+    testVehicle.accelerate(20);
+    Integer newSpeed = 60;
     Assert.assertEquals(newSpeed, testVehicle.getVelocity());
   }
 
@@ -67,7 +70,7 @@ public class AutomobileTest {
 
   @Test(expected = Exception.class)
   public void invalidAccFactor() throws Exception {
-    testVehicle.accelerate(5);
+    testVehicle.accelerate(-5);
   }
 
 
@@ -92,7 +95,7 @@ public class AutomobileTest {
   // velocity range test ----------------------------------------------------------------------
   @Test(expected = Exception.class)
   public void invalidVelocity() {
-    Automobile testVehicle2 = new Automobile("testColor", testMakeAndModel,
+    Bus testVehicle2 = new Bus("testColor", testMakeAndModel,
         testLicense, 1000, EASTBOUND);
   }
 
