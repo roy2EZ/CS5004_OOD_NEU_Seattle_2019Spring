@@ -1,13 +1,17 @@
 package problem2;
 
+
 public abstract class AbstractVehicle implements IVehicle {
   protected String color;
   protected MakeAndModel makeAndModel;
   protected License license;
   protected Integer velocity;
   protected Direction direction;
-  public final static Integer MIN_VOLOCITY = 40;
-
+  public final static Integer MIN_VELOCITY = 40;
+  public final static Integer MIN_ACC_FACTOR = 10;
+  public final static Integer MAX_ACC_FACTOR = 50;
+  public final static Integer MIN_DEC_FACTOR = 20;
+  public final static Integer MAX_DEC_FACTOR = 50;
 
   /**
    * @return the color of the vehicle
@@ -43,4 +47,5 @@ public abstract class AbstractVehicle implements IVehicle {
   public Direction getDirection() {
     return direction;
   }
+
 }
