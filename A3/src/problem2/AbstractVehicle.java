@@ -16,6 +16,15 @@ public abstract class AbstractVehicle implements IVehicle {
   public final static Integer MIN_DEC_FACTOR = 20;
   public final static Integer MAX_DEC_FACTOR = 50;
 
+  public AbstractVehicle(String color, MakeAndModel makeAndModel, License license,
+      Integer velocity, Direction direction) {
+    this.color = color;
+    this.makeAndModel = makeAndModel;
+    this.license = license;
+    this.velocity = velocity;
+    this.direction = direction;
+  }
+
   /**
    * @return the color of the vehicle
    */

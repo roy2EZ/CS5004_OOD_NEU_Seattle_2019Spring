@@ -15,18 +15,15 @@ public class Motorcycle extends AbstractVehicle {
    * @param direction direction of the vehicle
    * @throws Exception for velocity out of range
    */
-  public Motorcycle(String color, MakeAndModel makeAndModel, License license, Integer velocity, Direction direction)
-      throws IllegalArgumentException {
-    this.color = color;
-    this.makeAndModel = makeAndModel;
-    this.license = license;
+  public Motorcycle(String color, MakeAndModel makeAndModel, License license,
+      Integer velocity, Direction direction) {
+    super(color, makeAndModel, license, velocity, direction);
     if (velocity <= MAX_V_Motor && velocity >= MIN_VELOCITY) {
       this.velocity = velocity;
     } else {
       throw new IllegalArgumentException(String.format("Velocity should be an integer between %d and %d", MIN_VELOCITY,
           MAX_V_Motor));
     }
-    this.direction = direction;
   }
 
   /**
