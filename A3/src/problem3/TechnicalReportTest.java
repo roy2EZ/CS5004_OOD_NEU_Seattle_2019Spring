@@ -31,30 +31,33 @@ public class TechnicalReportTest {
     Integer EXPECTED_ISSUE = 33;
     Assert.assertEquals(EXPECTED_ISSUE, newJournal.getIssueNum());
     Assert.assertEquals("Jul", newJournal.getMonth());
-    Assert.assertEquals(Year.of(2001), newJournal.getYear());
-
+    Assert.assertEquals(2001, newJournal.getYear().getValue());
   }
-
 
   @Test
   public void getTitle() {
+    assertEquals("The art of lies", testTR.getTitle());
   }
 
   @Test
   public void getAuthor() {
-  }
-
-  @Test
-  public void getYear() {
+    assertEquals("John Steward", testTR.getAuthor());
   }
 
   @Test
   public void getTR_ID() {
+    Integer EXPECTED_TR_ID = 1224;
+    assertEquals(EXPECTED_TR_ID, testTR.getTR_ID());
   }
 
   @Test
   public void getInstruction() {
+    assertEquals("Institute of Human Behavior", testTR.getInstruction());
   }
 
+  @Test
+  public void getYear() {
+    assertEquals(2001, testJournal.getYear().getValue());
+  }
 
 }
