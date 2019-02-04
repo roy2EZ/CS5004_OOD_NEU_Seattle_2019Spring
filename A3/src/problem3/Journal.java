@@ -1,6 +1,5 @@
 package problem3;
 
-import java.time.Month;
 import java.time.Year;
 
 /**
@@ -10,7 +9,7 @@ public class Journal extends AbstractPublication {
 
   private String journalName;
   private Integer issueNum;
-  private Month month;
+  private String month;
 
   /**
    * @param title  the title of the conference publication
@@ -21,7 +20,7 @@ public class Journal extends AbstractPublication {
    * @param year the year that publication published
    */
   public Journal(String title, String author, String journalName,
-      Integer issueNum, Month month, Year year) {
+      Integer issueNum, String month, Year year) {
     super(title, author, year);
     this.journalName = journalName;
     this.issueNum = issueNum;
@@ -36,7 +35,9 @@ public class Journal extends AbstractPublication {
     return issueNum;
   }
 
-  public Month getMonth() {
+  public String getMonth() {
     return month;
   }
+
+
 }

@@ -8,7 +8,7 @@ import java.time.Year;
 public class TechnicalReport extends AbstractPublication {
 
   private Integer TR_ID;
-  private Integer instruction;
+  private String instruction;
 
   /**
    * @param title the title of the report
@@ -18,7 +18,7 @@ public class TechnicalReport extends AbstractPublication {
    * @param year the year that report published
    */
   public TechnicalReport(String title, String author, Integer TR_ID,
-      Integer instruction, Year year) {
+      String instruction, Year year) {
     super(title, author, year);
     this.TR_ID = TR_ID;
     this.instruction = instruction;
@@ -28,7 +28,21 @@ public class TechnicalReport extends AbstractPublication {
     return TR_ID;
   }
 
-  public Integer getInstruction() {
+  public String getInstruction() {
     return instruction;
   }
+
+  /**
+   * @param tr a technical report
+   * @param journalName the name of the conference
+   * @param issueNum the location of the conference
+   * @param month the month that publication published
+   * @param year the year that publication published
+   * @return a new journal publication which was a technical report
+   */
+  public Journal turnTRtoJournal(String journalName, Integer issueNum, String month, Year year) {
+    return new Journal(this.title, this.author, journalName,
+        issueNum, month, year);
+  }
+
 }
