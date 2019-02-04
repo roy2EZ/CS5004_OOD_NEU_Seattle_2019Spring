@@ -15,7 +15,7 @@ public class TechnicalReportTest {
   @Before
   public void setUp() throws Exception {
     testJournal = new Journal("testJournalTitle", "testJournalAuthor", "Science of Lies",
-        33, "Jul", Year.of(2001));
+        33, Month.JUL, Year.of(2001));
     testTR = new TechnicalReport("The art of lies", "John Steward",
         1224, "Institute of Human Behavior", Year.of(1999));
   }
@@ -30,7 +30,7 @@ public class TechnicalReportTest {
     Assert.assertEquals("Science of Lies", newJournal.getJournalName());
     Integer EXPECTED_ISSUE = 33;
     Assert.assertEquals(EXPECTED_ISSUE, newJournal.getIssueNum());
-    Assert.assertEquals("Jul", newJournal.getMonth());
+    Assert.assertEquals("JUL", newJournal.getMonth().toString());
     Assert.assertEquals(2001, newJournal.getYear().getValue());
   }
 

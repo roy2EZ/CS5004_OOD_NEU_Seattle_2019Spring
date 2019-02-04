@@ -12,7 +12,7 @@ public class ConferenceTest {
   @Before
   public void setUp() throws Exception {
     testConference = new Conference("testTitle", "testAuthor", "testConferenceName",
-        "Seattle, WA", "Jul", Year.of(2015));
+        "Seattle, WA", Month.JUL, Year.of(2015));
   }
 
   @Test
@@ -37,7 +37,8 @@ public class ConferenceTest {
 
   @Test
   public void getMonth() {
-    assertEquals("Jul", testConference.getMonth());
+    assertEquals(Month.JUL, testConference.getMonth());
+    assertEquals("JUL", testConference.getMonth().toString());
   }
 
   @Test

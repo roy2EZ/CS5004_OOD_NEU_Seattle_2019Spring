@@ -9,7 +9,7 @@ public class Conference extends AbstractPublication {
 
   private String conferenceName;
   private String location;
-  private String month;
+  private Month month;
 
   /**
    * @param title  the title of the conference publication
@@ -20,7 +20,7 @@ public class Conference extends AbstractPublication {
    * @param year the year that publication published
    */
   public Conference(String title, String author, String conferenceName,
-      String location, String month, Year year) {
+      String location, Month month, Year year) {
     super(title, author, year);
     this.conferenceName = conferenceName;
     this.location = location;
@@ -35,7 +35,7 @@ public class Conference extends AbstractPublication {
     return location;
   }
 
-  public String getMonth() {
+  public Month getMonth() {
     return month;
   }
 }

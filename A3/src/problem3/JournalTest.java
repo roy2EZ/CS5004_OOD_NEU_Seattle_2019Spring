@@ -11,7 +11,7 @@ public class JournalTest {
   @Before
   public void setUp() throws Exception {
     testJournal = new Journal("testJournalTitle", "testJournalAuthor", "Science of Lies",
-        33, "Jul", Year.of(2001));
+        33, Month.JUL, Year.of(2001));
   }
 
   @Test
@@ -37,7 +37,7 @@ public class JournalTest {
 
   @Test
   public void getMonth() {
-    Assert.assertEquals("Jul", testJournal.getMonth());
+    Assert.assertEquals("JUL", testJournal.getMonth().toString());
   }
 
   @Test

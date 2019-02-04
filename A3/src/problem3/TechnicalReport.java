@@ -33,14 +33,13 @@ public class TechnicalReport extends AbstractPublication {
   }
 
   /**
-   * @param tr a technical report
    * @param journalName the name of the conference
    * @param issueNum the location of the conference
    * @param month the month that publication published
    * @param year the year that publication published
    * @return a new journal publication which was a technical report
    */
-  public Journal turnTRtoJournal(String journalName, Integer issueNum, String month, Year year) {
+  public Journal turnTRtoJournal(String journalName, Integer issueNum, Month month, Year year) {
     return new Journal(this.title, this.author, journalName,
         issueNum, month, year);
   }
