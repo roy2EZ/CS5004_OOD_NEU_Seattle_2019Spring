@@ -1,12 +1,17 @@
 package edu.neu.ccs.cs5004.problem1;
 
+/**
+ * Represents the interface of parking spot
+ * @author Roy Chen
+ * @version 1.0
+ */
 public interface IParkingSpot {
 
   /**
    * @param vehicle the vehicle which is looking for parking spot
    * @param parkingSpot the parking spot
    * @return returns true if a vehicle was successfully parked, and false otherwise
-*/
+   */
   Boolean parkVehicle(Vehicle vehicle, ParkingSpot parkingSpot);
 
   /**
