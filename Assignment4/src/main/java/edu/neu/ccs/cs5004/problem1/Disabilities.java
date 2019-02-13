@@ -6,5 +6,5 @@ package edu.neu.ccs.cs5004.problem1;
  * @version 1.0
  */
 public enum Disabilities {
-  DESABILITY, REGULAR
+  DISABILITY, REGULAR
 }
