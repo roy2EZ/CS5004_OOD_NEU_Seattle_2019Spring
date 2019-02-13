@@ -1,9 +1,30 @@
 package edu.neu.ccs.cs5004.problem1;
 
+
+
 public class ParkingSpot implements IParkingSpot {
   private Size spotSize;
   private Disabilities spotDisType;
   private Availability spotAvailability;
+
+  public ParkingSpot(Size spotSize, Disabilities spotDisType,
+      Availability spotAvailability) {
+    this.spotSize = spotSize;
+    this.spotDisType = spotDisType;
+    this.spotAvailability = spotAvailability;
+  }
+
+  public Size getSpotSize() {
+    return spotSize;
+  }
+
+  public Disabilities getSpotDisType() {
+    return spotDisType;
+  }
+
+  public Availability getSpotAvailability() {
+    return spotAvailability;
+  }
 
   /**
    * @param vehicle the vehicle which is looking for parking spot
@@ -25,8 +46,18 @@ public class ParkingSpot implements IParkingSpot {
    * InvalidSpotSizeException;
    */
   @Override
-  public Boolean isParkingValid(AbstractVehicle vehicle, IParkingSpot parkingSpot)
-      throws Exception {
-    return null;
+  public Boolean isParkingValid(AbstractVehicle vehicle, ParkingSpot parkingSpot)
+      throws InvalidSpotSizeException, InvalidSpotTypeException, UnavailableSpotException {
+    if (vehicle.getVehicleSize().ordinal() > parkingSpot.getSpotSize().ordinal()) {
+      throw new InvalidSpotSizeException(String.format("%s vehicle can't park in %s spot.",
+          vehicle.getVehicleSize().toString(), parkingSpot.getSpotSize().toString()));
+    } else if (vehicle.getVehicleDisType().ordinal() > parkingSpot.getSpotDisType().ordinal()) {
+      throw new InvalidSpotTypeException(String.format("%s vehicle can't park in %s spot.",
+          vehicle.getVehicleDisType().toString(), parkingSpot.getSpotDisType().toString()));
+    } else if (parkingSpot.getSpotAvailability().equals(Availability.TAKEN)) {
+      throw new UnavailableSpotException(String.format("This spot is %s.",
+          parkingSpot.getSpotAvailability().toString()));
+    }
+  return true;
   }
 }

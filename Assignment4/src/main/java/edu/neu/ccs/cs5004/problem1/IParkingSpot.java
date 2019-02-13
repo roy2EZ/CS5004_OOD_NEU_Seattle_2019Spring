@@ -18,6 +18,7 @@ public interface IParkingSpot {
    * if vehicle can't park for disability type not matching spot, throws InvalidSpotTypeException;
    * if vehicle can't park for size not matching spot, throws InvalidSpotSizeException;
    */
-  Boolean isParkingValid(AbstractVehicle vehicle, IParkingSpot parkingSpot) throws Exception;
 
+  Boolean isParkingValid(AbstractVehicle vehicle, ParkingSpot parkingSpot)
+      throws InvalidSpotSizeException, InvalidSpotTypeException, UnavailableSpotException;
 }
