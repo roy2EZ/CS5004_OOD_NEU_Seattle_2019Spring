@@ -43,11 +43,7 @@ public class ParkingSpot implements IParkingSpot {
       if (parkingSpot.isParkingValid(vehicle)) {
         return true;
       }
-    } catch (InvalidSpotSizeException e) {
-      e.printStackTrace();
-    } catch (InvalidSpotTypeException e) {
-      e.printStackTrace();
-    } catch (UnavailableSpotException e) {
+    } catch (InvalidSpotSizeException | InvalidSpotTypeException | UnavailableSpotException e) {
       e.printStackTrace();
     }
     return false;
@@ -72,8 +68,7 @@ public class ParkingSpot implements IParkingSpot {
     } else if (this.spotAvailability.equals(Availability.TAKEN)) {
       throw new UnavailableSpotException(String.format("This spot is %s.",
           this.spotAvailability.toString()));
-    } else {
-      return true;
     }
+    return true;
   }
 }

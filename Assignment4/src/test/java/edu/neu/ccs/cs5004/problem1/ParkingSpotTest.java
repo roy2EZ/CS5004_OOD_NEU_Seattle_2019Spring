@@ -1,7 +1,6 @@
 package edu.neu.ccs.cs5004.problem1;
 
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import static edu.neu.ccs.cs5004.problem1.Availability.*;
@@ -26,12 +25,12 @@ public class ParkingSpotTest {
   @Before
   public void setUp() throws Exception {
     smallRegCar = new Vehicle(SMALL, REGULAR);
-    medCar = new Vehicle(MEDUIM, REGULAR);
+    medCar = new Vehicle(MEDIUM, REGULAR);
     largeCar = new Vehicle(LARGE, REGULAR);
     disableCar = new Vehicle(SMALL, DISABILITY);
 
     smallSpot = new ParkingSpot(SMALL, REGULAR, AVAILABLE);
-    medSpot = new ParkingSpot(MEDUIM, REGULAR, AVAILABLE);
+    medSpot = new ParkingSpot(MEDIUM, REGULAR, AVAILABLE);
     largeSpot = new ParkingSpot(LARGE, REGULAR, AVAILABLE);
     disableSpot = new ParkingSpot(SMALL, DISABILITY, AVAILABLE);
     takenSpot = new ParkingSpot(SMALL, REGULAR, TAKEN);
@@ -85,7 +84,7 @@ public class ParkingSpotTest {
   }
 
   @Test
-  public void testParkVehicle() {
+  public void parkVehicle() {
     // Test part 1
     // Vehicle can be parked if everything of the vehicle is valid for that spot
     assertTrue(medSpot.parkVehicle(medCar, medSpot));
@@ -100,5 +99,21 @@ public class ParkingSpotTest {
     // Test part 3
     // taken spot cannot be parked anymore
     assertFalse(takenSpot.parkVehicle(smallRegCar, takenSpot));
+  }
+
+  @Test
+  public void getSpotSize() {
+    assertEquals(SMALL, smallSpot.getSpotSize());
+  }
+
+  @Test
+  public void getSpotDisType() {
+    assertEquals(DISABILITY, disableSpot.getSpotDisType());
+  }
+
+  @Test
+  public void getSpotAvailability() {
+    assertEquals(AVAILABLE, smallSpot.getSpotAvailability());
+    assertEquals(TAKEN, takenSpot.getSpotAvailability());
   }
 }
