@@ -1,5 +1,10 @@
 package edu.neu.ccs.cs5004.problem1;
-
+/**
+ * Represents interface of parking spot
+ *
+ * @author Roy Chen
+ * @version 1.0
+ */
 public interface IParkingSpot {
 
   /**

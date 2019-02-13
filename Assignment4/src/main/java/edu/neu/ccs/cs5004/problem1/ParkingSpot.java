@@ -1,7 +1,10 @@
 package edu.neu.ccs.cs5004.problem1;
-
-
-
+/**
+ * Represents the parking spot
+ *
+ * @author Roy Chen
+ * @version 1.0
+ */
 public class ParkingSpot implements IParkingSpot {
   private Size spotSize;
   private Disabilities spotDisType;
