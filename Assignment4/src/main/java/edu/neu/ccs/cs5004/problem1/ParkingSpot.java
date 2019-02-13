@@ -9,9 +9,13 @@ public class ParkingSpot implements IParkingSpot {
   private Size spotSize;
   private Disabilities spotDisType;
   private Availability spotAvailability;
-  private Vehicle vehicle;
-  private ParkingSpot parkingSpot;
 
+  /**
+   * The constructor for parking spot.
+   * @param spotSize size of spot
+   * @param spotDisType the disability type of spot
+   * @param spotAvailability spot is taken or available
+   */
   public ParkingSpot(Size spotSize, Disabilities spotDisType,
       Availability spotAvailability) {
     this.spotSize = spotSize;
@@ -30,15 +34,14 @@ public class ParkingSpot implements IParkingSpot {
   public Availability getSpotAvailability() {
     return spotAvailability;
   }
-
   /**
+   * To check if the vehicle can park to the spot.
    * @param vehicle the vehicle which is looking for parking spot
    * @param parkingSpot the parking spot
    * @return returns true if a vehicle was successfully parked, and false otherwise
    */
   @Override
   public Boolean parkVehicle(Vehicle vehicle, ParkingSpot parkingSpot) {
-    this.parkingSpot = parkingSpot;
     try {
       if (parkingSpot.isParkingValid(vehicle)) {
         return true;
@@ -48,8 +51,8 @@ public class ParkingSpot implements IParkingSpot {
     }
     return false;
   }
-
   /**
+   * To throw exceptions for invalid vehicle of the parking spot.
    * @param vehicle the vehicle which is looking for parking spot
    * @return true if a vehicle was successfully parked
    * @throws UnavailableSpotException if vehicle can't park for spot is taken

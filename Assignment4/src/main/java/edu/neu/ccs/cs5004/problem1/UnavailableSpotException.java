@@ -5,7 +5,7 @@ package edu.neu.ccs.cs5004.problem1;
  * @author Roy Chen
  * @version 1.0
  */
-public class UnavailableSpotException extends Throwable {
+public class UnavailableSpotException extends Exception {
   public UnavailableSpotException(String message) {
     super(message);
   }

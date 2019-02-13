@@ -5,7 +5,7 @@ package edu.neu.ccs.cs5004.problem1;
  * @author Roy Chen
  * @version 1.0
  */
-public class InvalidSpotTypeException extends Throwable {
+public class InvalidSpotTypeException extends Exception {
   public InvalidSpotTypeException(String message) {
     super(message);
   }
