@@ -9,6 +9,9 @@ import static edu.neu.ccs.cs5004.problem1.Disabilities.*;
 import static edu.neu.ccs.cs5004.problem1.Size.*;
 import static org.junit.Assert.*;
 
+/**
+ * test parking spot methods
+ */
 public class ParkingSpotTest {
   private Vehicle smallRegCar;
   private Vehicle medCar;
@@ -97,6 +100,5 @@ public class ParkingSpotTest {
     // Test part 3
     // taken spot cannot be parked anymore
     assertFalse(takenSpot.parkVehicle(smallRegCar, takenSpot));
-
   }
 }

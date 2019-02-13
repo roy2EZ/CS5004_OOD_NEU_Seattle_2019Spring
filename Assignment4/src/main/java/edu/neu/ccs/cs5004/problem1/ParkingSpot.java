@@ -41,7 +41,6 @@ public class ParkingSpot implements IParkingSpot {
     this.parkingSpot = parkingSpot;
     try {
       if (parkingSpot.isParkingValid(vehicle)) {
-        this.parkingSpot = new ParkingSpot(this.spotSize, this.spotDisType, Availability.TAKEN);
         return true;
       }
     } catch (InvalidSpotSizeException e) {
