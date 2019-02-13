@@ -1,10 +1,5 @@
 package edu.neu.ccs.cs5004.problem1;
-/**
- * test parking methods in ParkingSpot class
- *
- * @author Roy Chen
- * @version 1.0
- */
+
 
 import org.junit.Assert;
 import org.junit.Before;
