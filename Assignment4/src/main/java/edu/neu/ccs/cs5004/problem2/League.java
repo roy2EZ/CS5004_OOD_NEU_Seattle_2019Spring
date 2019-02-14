@@ -17,6 +17,39 @@ public class League implements ILeague {
   public final Integer BASEBALL_GAME_NUN = 162;
   public final Integer SOCCER_GAME_NUM = 38;
 
+  public League(String leagueName, Sport leagueType, Integer seasonStartMon,
+      Integer seasonEndMon, Integer numOfGames, Game nextGame) {
+    this.leagueName = leagueName;
+    this.leagueType = leagueType;
+    this.seasonStartMon = seasonStartMon;
+    this.seasonEndMon = seasonEndMon;
+    this.numOfGames = numOfGames;
+    this.nextGame = nextGame;
+  }
+
+  public String getLeagueName() {
+    return leagueName;
+  }
+
+  public Sport getLeagueType() {
+    return leagueType;
+  }
+
+  public Integer getSeasonStartMon() {
+    return seasonStartMon;
+  }
+
+  public Integer getSeasonEndMon() {
+    return seasonEndMon;
+  }
+
+  public Integer getNumOfGames() {
+    return numOfGames;
+  }
+
+  public Game getNextGame() {
+    return nextGame;
+  }
 
   @Override
   public Team compareTeam(Team team1, Team team2) throws TiedTeamsException {
