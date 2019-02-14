@@ -1,6 +1,7 @@
 package edu.neu.ccs.cs5004.problem2;
 
-import java.util.Date;
+
+import sun.util.calendar.BaseCalendar.Date;
 
 /**
  * Represents a sport game
@@ -11,6 +12,7 @@ public class Game implements IGame {
   private Date gameDate;
   private Integer homeTeamScore;
   private Integer awayTeamScore;
+  private String result;
 
   @Override
   public Boolean isTie(Game game) {

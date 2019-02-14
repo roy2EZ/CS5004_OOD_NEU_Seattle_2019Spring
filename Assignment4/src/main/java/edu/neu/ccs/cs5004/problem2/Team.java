@@ -12,10 +12,6 @@ public class Team implements ITeam {
   private Integer points;
   private Game lastGame;
 
-  @Override
-  public Team playGame(Game game) {
-    return null;
-  }
 
   public String getTeamName() {
     return teamName;
@@ -46,5 +42,10 @@ public class Team implements ITeam {
       throw new InvalidGameException("This is the first game of this season. No last game.");
     }
     return lastGame;
+  }
+
+  @Override
+  public Team updateTeam(Game game) {
+    return null;
   }
 }
