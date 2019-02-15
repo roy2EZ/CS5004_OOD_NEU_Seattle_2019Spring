@@ -6,7 +6,7 @@ package edu.neu.ccs.cs5004.problem2;
 public interface ITeam {
 
   /**
-   * update related parameters of a team with a played game result
+   * update related parameters of a team with a played abstractGame result
    */
-  void updateTeam(Game game);
+  void updateTeam(AbstractGame abstractGame);
 }

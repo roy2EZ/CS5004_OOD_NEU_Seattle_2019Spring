@@ -10,21 +10,15 @@ public interface IGame {
    * @param homeScore
    * @param awayScore
    */
-  void updateGame(Integer homeScore, Integer awayScore);
+  void playGameAndUpdateTeam(Integer homeScore, Integer awayScore);
+
+
 
   /**
-   * get the result of whether the game is tie or not tie
-   * for league with draw games allowed and for team in those leagues
-   * @param game
-   * @return the outcome
-   */
-  GameOutcome getOutcome(Game game) throws FutureGameException;
-
-  /**
-   * get the name of winning team of the game
-   * @param game
+   * get the name of winning team of the abstractGame
+   * @param abstractGame
    * @return
    * @throws TiedGameException
    */
-  String getWinner(Game game) throws TiedGameException, FutureGameException;
+  String getWinner(AbstractGame abstractGame) throws TiedGameException, FutureGameException;
 }

@@ -5,16 +5,22 @@ package edu.neu.ccs.cs5004.problem2;
  */
 public abstract class AbstractTeam implements ITeam {
   protected String teamName;
-  protected League league;
+  protected AbstractLeague League;
   protected Integer gamePlayedNum;
   protected Integer gameRemainingNum;
   protected Record record;
   protected Point point;
-  protected Game lastGame;
+  protected AbstractGame lastGame;
 
+
+  public AbstractTeam(String teamName, AbstractLeague league) {
+    this.teamName = teamName;
+    this.League = league;
+
+  }
 
   @Override
-  public void updateTeam(Game game) {
+  public void updateTeam(AbstractGame abstractGame) {
 
   }
 
@@ -22,8 +28,8 @@ public abstract class AbstractTeam implements ITeam {
     return teamName;
   }
 
-  public League getLeague() {
-    return league;
+  public AbstractLeague getLeague() {
+    return League;
   }
 
   public Integer getGamePlayedNum() {
@@ -42,7 +48,7 @@ public abstract class AbstractTeam implements ITeam {
     return point;
   }
 
-  public Game getLastGame() throws InvalidGameException {
+  public AbstractGame getLastGame() throws InvalidGameException {
     if (lastGame == null) {
       throw new InvalidGameException("");
     }

@@ -2,7 +2,7 @@ package edu.neu.ccs.cs5004.problem2;
 
 /**
  * represents the points a team having now in a season
- * in different league, the rules to get points from a game is different designed.
+ * in different League, the rules to get points from a game is different designed.
  */
 public class Point {
   private Integer winPoint;
@@ -10,7 +10,7 @@ public class Point {
   private Integer losePoint;
 
   /**
-   * constructs point for league with win, lose and draw game result
+   * constructs point for League with win, lose and draw game result
    * @param winPoint
    * @param drawPoint
    * @param losePoint
@@ -21,7 +21,7 @@ public class Point {
     this.losePoint = losePoint;
   }
   /**
-   * constructs point for league without draw game result
+   * constructs point for League without draw game result
    * @param winPoint
    * @param losePoint
    */

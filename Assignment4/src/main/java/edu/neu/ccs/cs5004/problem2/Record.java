@@ -9,7 +9,7 @@ public class Record {
   private Integer loseNum;
 
   /**
-   * constructs for team in the league with win, lose and draw result of game.
+   * constructs for team in the League with win, lose and draw result of game.
    * @param winNum number of winning games till now in this season
    * @param drawNum number of draw games till now in this season
    * @param loseNum number of losing games till now in this season
@@ -21,7 +21,7 @@ public class Record {
   }
 
   /**
-   * constructs for team in the league without draw result of game.
+   * constructs for team in the League without draw result of game.
    * @param winNum number of winning games till now in this season
    * @param loseNum number of losing games till now in this season
    */
