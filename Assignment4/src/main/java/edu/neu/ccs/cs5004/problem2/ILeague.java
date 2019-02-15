@@ -2,11 +2,15 @@ package edu.neu.ccs.cs5004.problem2;
 
 import sun.util.calendar.BaseCalendar.Date;
 
-/**
- * Represents an interface of a sport league
- */
 public interface ILeague {
-  Team compareTeam(Team team1, Team team2) throws TiedTeamsException;
-  Game scheduleGame(Team team1, Team team2, Date date);
-  Game playGame(Integer homeTeamScore, Integer awayTeamScore);
+
+  /**
+   * Given two teams, return the team that has the most points.
+   * @param team1
+   * @param team2
+   * @return
+   */
+  AbstractTeam compareTeams(AbstractTeam team1, AbstractTeam team2);
+
+  void scheduleGame(AbstractTeam homeTeam, AbstractTeam awayTeam, Date gameDate);
 }

@@ -1,32 +1,41 @@
 package edu.neu.ccs.cs5004.problem2;
 
-
 import sun.util.calendar.BaseCalendar.Date;
 
-/**
- * Represents a sport game
- */
 public class Game implements IGame {
-  private Team homeTeam;
-  private Team awayTeam;
+  private String homeTeamName;
+  private String awayTeamName;
   private Date gameDate;
-  private Integer homeTeamScore;
-  private Integer awayTeamScore;
-  private String result;
+  private Integer homeScore;
+  private Integer awayScore;
+  private GameOutcome gameTieResult;
 
+
+  /**
+   * update the game class with scores of two team got in the game
+   */
   @Override
-  public Boolean isTie(Game game) {
+  public void updateGame(Integer homeScore, Integer awayScore) {
+
+  }
+
+  /**
+   * get the result of whether the game is tie or not tie for league with draw games allowed and for
+   * team in those leagues
+   *
+   * @return the outcome
+   */
+  @Override
+  public GameOutcome getOutcome(Game game) throws FutureGameException {
     return null;
   }
 
+  /**
+   * get the name of winning team of the game
+   */
   @Override
-  public Team getWinnerTeam(Game game) throws TiedGameException {
-    if (isTie(game)) {
-      throw new TiedGameException("This game is tied. No winner. ");
-    } else if (this.homeTeamScore>this.awayTeamScore){
-     return this.homeTeam;
-    } else {
-      return this.awayTeam;
-    }
+  public String getWinner(Game game) throws TiedGameException, FutureGameException {
+    return null;
   }
 }
+

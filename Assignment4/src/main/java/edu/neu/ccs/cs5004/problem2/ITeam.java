@@ -1,9 +1,12 @@
 package edu.neu.ccs.cs5004.problem2;
 
 /**
- * Represents an interface of a team
+ * Represent an interface of sport teams
  */
 public interface ITeam {
-  ITeam updateTeam(Game game);
 
+  /**
+   * update related parameters of a team with a played game result
+   */
+  void updateTeam(Game game);
 }
