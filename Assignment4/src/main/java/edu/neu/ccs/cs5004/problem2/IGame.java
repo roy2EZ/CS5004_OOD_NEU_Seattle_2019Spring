@@ -16,9 +16,8 @@ public interface IGame {
 
   /**
    * get the name of winning team of the abstractGame
-   * @param abstractGame
    * @return
    * @throws TiedGameException
    */
-  String getWinner(AbstractGame abstractGame) throws TiedGameException, FutureGameException;
+  String getWinner(Game game) throws TiedGameException, FutureGameException;
 }

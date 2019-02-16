@@ -18,4 +18,28 @@ public abstract class AbstractLeague implements ILeague {
     this.endMonth = endMonth;
     this.numOfGames = numOfGames;
   }
+
+  public AbstractLeague(String leagueName) {
+    this.leagueName = leagueName;
+  }
+
+  public String getLeagueName() {
+    return leagueName;
+  }
+
+  public Sport getLeagueType() {
+    return leagueType;
+  }
+
+  public Integer getStartMonth() {
+    return startMonth;
+  }
+
+  public Integer getEndMonth() {
+    return endMonth;
+  }
+
+  public Integer getNumOfGames() {
+    return numOfGames;
+  }
 }

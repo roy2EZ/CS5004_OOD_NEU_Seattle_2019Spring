@@ -21,15 +21,9 @@ public class BaseballTeam extends AbstractTeam {
    * update related parameters of a team with a played game result for game without tie sport
    */
   @Override
-  public void updateTeam(GameWithoutTie game) {
+  public void updateTeam(Game game) {
 
   }
 
-  /**
-   * this method is no need here for baseball
-   * update related parameters of a team with a played game result for game with tie sport
-   */
-  @Override
-  public void updateTeam(GameWithTie game) {
-  }
+
 }

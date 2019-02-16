@@ -22,7 +22,7 @@ public interface ILeague {
    * @param awayTeam
    * @param gameDate
    */
-  AbstractGame scheduleGame(AbstractTeam homeTeam, AbstractTeam awayTeam, Date gameDate);
+  Game scheduleGame(AbstractTeam homeTeam, AbstractTeam awayTeam, Date gameDate);
 
   /**
    * Update a game with the points scored during the game.
@@ -30,5 +30,5 @@ public interface ILeague {
    * @param homeScore
    * @param awayScore
    */
-  void leaguePlayGame( AbstractGame game, Integer homeScore, Integer awayScore);
+  void leaguePlayGame( Game game, Integer homeScore, Integer awayScore);
 }

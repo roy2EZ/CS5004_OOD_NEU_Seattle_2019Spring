@@ -10,7 +10,7 @@ public abstract class AbstractTeam implements ITeam {
   protected Integer gameRemainingNum;
   protected Record record;
   protected Point point;
-  protected AbstractGame lastGame;
+  protected Game lastGame;
 
   /**
    * constructs a general off season team with init 0 to related fields
@@ -51,7 +51,7 @@ public abstract class AbstractTeam implements ITeam {
     return point;
   }
 
-  public AbstractGame getLastGame() throws InvalidGameException {
+  public Game getLastGame() throws InvalidGameException {
     if (lastGame == null) {
       throw new InvalidGameException("There is no last game.");
     }

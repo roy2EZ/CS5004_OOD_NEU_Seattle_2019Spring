@@ -11,10 +11,7 @@ public interface ITeam {
   /**
    * update related parameters of a team with a played game result for game with tie sport
    */
-  void updateTeam(GameWithTie game) throws FutureGameException, TiedGameException;
+  void updateTeam(Game game) throws FutureGameException, TiedGameException;
 
-  /**
-   * update related parameters of a team with a played game result for game without tie sport
-   */
-  void updateTeam(GameWithoutTie game);
+
 }

@@ -8,21 +8,18 @@ public class AmericanFootballTeam extends AbstractTeam {
   private final Integer LOSE_POINT_PER_GAME = 0;
   private final Integer DRAW_POINT_PER_GAME = 0;
 
-  /**
-   * constructs a general off season team with init 0 to related fields
-   */
   public AmericanFootballTeam(String teamName, AbstractLeague league) {
     super(teamName, league);
     this.record = new Record(0,0,0);
     this.point = new Point(0,0,0);
+    this.lastGame = null;
   }
-
 
   /**
    * update related parameters of a team with a played game result for game with tie sport.
    */
   @Override
-  public void updateTeam(GameWithTie game) throws FutureGameException, TiedGameException {
+  public void updateTeam(Game game) throws FutureGameException, TiedGameException {
     // update last game.
     this.lastGame = game;
     // update game played number.
@@ -48,11 +45,5 @@ public class AmericanFootballTeam extends AbstractTeam {
         this.record.getLoseNum()*LOSE_POINT_PER_GAME);
   }
 
-  /**
-   * this mothed is no need here for american football.
-   * update related parameters of a team with a played game result for game without tie sport.
-   */
-  @Override
-  public void updateTeam(GameWithoutTie game) {
-  }
+
 }
