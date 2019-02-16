@@ -42,9 +42,7 @@ public class GameTest {
   @Test
   public void getGameDate() {
     assertEquals(gameDate, testGame.getGameDate());
-    assertEquals(10, testGame.getGameDate().getMonth());
-
-
+    
   }
 
   @Test
