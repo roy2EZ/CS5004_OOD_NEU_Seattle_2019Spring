@@ -29,4 +29,16 @@ public class Point {
     this.winPoint = winPoint;
     this.losePoint = losePoint;
   }
+
+  public Integer getWinPoint() {
+    return winPoint;
+  }
+
+  public Integer getDrawPoint() {
+    return drawPoint;
+  }
+
+  public Integer getLosePoint() {
+    return losePoint;
+  }
 }

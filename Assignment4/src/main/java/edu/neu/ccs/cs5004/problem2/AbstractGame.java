@@ -25,6 +25,6 @@ public abstract class AbstractGame implements IGame {
   }
 
 
-
+  public abstract String getWinner(GameWithTie game) throws TiedGameException, FutureGameException;
 }
 

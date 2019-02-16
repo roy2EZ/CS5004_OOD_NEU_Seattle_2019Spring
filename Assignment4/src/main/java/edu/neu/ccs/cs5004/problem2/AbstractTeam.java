@@ -12,16 +12,19 @@ public abstract class AbstractTeam implements ITeam {
   protected Point point;
   protected AbstractGame lastGame;
 
-
+  /**
+   * constructs a general off season team with init 0 to related fields
+   * @param teamName
+   * @param league
+   */
   public AbstractTeam(String teamName, AbstractLeague league) {
     this.teamName = teamName;
-    this.League = league;
-
-  }
-
-  @Override
-  public void updateTeam(AbstractGame abstractGame) {
-
+    League = league;
+    this.gamePlayedNum = 0;
+    this.gameRemainingNum = 0;
+    this.record = null;
+    this.point = null;
+    this.lastGame = null;
   }
 
   public String getTeamName() {
@@ -50,10 +53,9 @@ public abstract class AbstractTeam implements ITeam {
 
   public AbstractGame getLastGame() throws InvalidGameException {
     if (lastGame == null) {
-      throw new InvalidGameException("");
+      throw new InvalidGameException("There is no last game.");
     }
     return lastGame;
   }
-
 
 }
