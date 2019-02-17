@@ -11,10 +11,27 @@ public class AmericanFootballLeague extends AbstractLeague {
 
   public AmericanFootballLeague(String leagueName) {
     super(leagueName);
-    this.leagueType = Sport.AMERICAN_FOOTBALL;
-    this.startMonth = 9;
-    this.endMonth = 12;
-    this.numOfGames = GAMES_NUM_OF_FOOTBALL;
+
+    numOfGames = GAMES_NUM_OF_FOOTBALL;
+    leagueType = Sport.AMERICAN_FOOTBALL;
+    startMonth = 9;
+    endMonth = 12;
+  }
+
+  public Integer getNumOfGames() {
+    return numOfGames;
+  }
+
+  public Sport getLeagueType() {
+    return leagueType;
+  }
+
+  public Integer getStartMonth() {
+    return startMonth;
+  }
+
+  public Integer getEndMonth() {
+    return endMonth;
   }
 
   /**

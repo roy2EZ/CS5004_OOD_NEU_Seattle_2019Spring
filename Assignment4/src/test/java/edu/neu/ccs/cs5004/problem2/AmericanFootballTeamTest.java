@@ -1,5 +1,6 @@
 package edu.neu.ccs.cs5004.problem2;
 
+import static edu.neu.ccs.cs5004.problem2.ITeam.GAMES_NUM_OF_FOOTBALL;
 import static org.junit.Assert.*;
 
 import java.text.DateFormat;
@@ -30,30 +31,50 @@ public class AmericanFootballTeamTest {
   }
 
   @Test
-  public void updateTeam() throws FutureGameException, TiedGameException {
+  public void updateTeam() throws FutureGameException, TiedGameException, InvalidGameException {
     // Step 1: initialize test teams as off season team
-    Integer expectedNum = 0;
-    assertEquals(expectedNum, seaHawks.getGamePlayedNum());
-    assertEquals(expectedNum, seaHawks.getGameRemainingNum());
-    assertEquals(expectedNum, chiBears.getGamePlayedNum());
-    assertEquals(expectedNum, chiBears.getGameRemainingNum());
+    Integer EXPECTED_NUM = 0;
+    assertEquals(EXPECTED_NUM, seaHawks.getGamePlayedNum());
+    assertEquals(EXPECTED_NUM, seaHawks.getGameRemainingNum());
+    assertEquals(EXPECTED_NUM, chiBears.getGamePlayedNum());
+    assertEquals(EXPECTED_NUM, chiBears.getGameRemainingNum());
     assertEquals("Seattle Hawks", seaHawks.getTeamName());
     assertEquals(nfl, seaHawks.getLeague());
-    assertEquals(expectedNum, seaHawks.getRecord().getWinNum());
-    assertEquals(expectedNum, seaHawks.getRecord().getLoseNum());
-    assertEquals(expectedNum, seaHawks.getRecord().getDrawNum());
-    assertEquals(expectedNum, seaHawks.getPoint().getWinPoint());
-    assertEquals(expectedNum, seaHawks.getPoint().getDrawPoint());
-    assertEquals(expectedNum, seaHawks.getPoint().getLosePoint());
+    assertEquals(EXPECTED_NUM, seaHawks.getRecord().getWinNum());
+    assertEquals(EXPECTED_NUM, seaHawks.getRecord().getLoseNum());
+    assertEquals(EXPECTED_NUM, seaHawks.getRecord().getDrawNum());
+    assertEquals(EXPECTED_NUM, seaHawks.getPoint().getWinPoint());
+    assertEquals(EXPECTED_NUM, seaHawks.getPoint().getDrawPoint());
+    assertEquals(EXPECTED_NUM, seaHawks.getPoint().getLosePoint());
 
     // Step 2: update the teams with the played game
     seaHawks.updateTeam(testGame);
     chiBears.updateTeam(testGame);
-
-
-
-
-
+    
+    // Step 3: check each team's related field to see if they are updated
+    // 3.1: if game played and remaining number updated
+    Integer ADD_NUM = 1;
+    assertEquals(ADD_NUM, seaHawks.getGamePlayedNum());
+    assertEquals(ADD_NUM, chiBears.getGamePlayedNum());
+    Integer EXPECTED_REMAIN_NUM = 15;
+    assertEquals(EXPECTED_REMAIN_NUM, seaHawks.getGameRemainingNum());
+    assertEquals(EXPECTED_REMAIN_NUM, chiBears.getGameRemainingNum());
+    // 3.2: chiBears win the game, seaHawks lose the game, update related record and points
+    assertEquals(ADD_NUM, seaHawks.getRecord().getLoseNum());
+    assertEquals(ADD_NUM, chiBears.getRecord().getWinNum());
+    assertEquals(ADD_NUM, chiBears.getPoint().getWinPoint());
+    Integer NOT_ADD_NUM = 0;
+    assertEquals(NOT_ADD_NUM, seaHawks.getRecord().getWinNum());
+    assertEquals(NOT_ADD_NUM, seaHawks.getRecord().getDrawNum());
+    assertEquals(NOT_ADD_NUM, seaHawks.getPoint().getWinPoint());
+    assertEquals(NOT_ADD_NUM, seaHawks.getPoint().getDrawPoint());
+    assertEquals(NOT_ADD_NUM, chiBears.getRecord().getLoseNum());
+    assertEquals(NOT_ADD_NUM, chiBears.getRecord().getDrawNum());
+    assertEquals(NOT_ADD_NUM, chiBears.getPoint().getLosePoint());
+    assertEquals(NOT_ADD_NUM, chiBears.getPoint().getDrawPoint());
+    // Step 4: update last game
+    assertEquals(testGame, seaHawks.getLastGame());
+    assertEquals(testGame, chiBears.getLastGame());
   }
 
   @Test(expected = InvalidGameException.class)

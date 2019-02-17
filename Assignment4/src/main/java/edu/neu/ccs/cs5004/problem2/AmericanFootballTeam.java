@@ -31,7 +31,7 @@ public class AmericanFootballTeam extends AbstractTeam {
       this.record = new Record(this.record.getWinNum(),
           this.record.getDrawNum() + 1, this.record.getLoseNum());
     } else {
-      if (this.teamName == game.getWinner(game)) {
+      if (this.teamName == game.getWinner()) {
         this.record = new Record(this.record.getWinNum() + 1,
             this.record.getDrawNum(), this.record.getLoseNum());
       } else {

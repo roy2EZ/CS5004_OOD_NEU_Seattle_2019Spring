@@ -19,5 +19,5 @@ public interface IGame {
    * @return
    * @throws TiedGameException
    */
-  String getWinner(Game game) throws TiedGameException, FutureGameException;
+  String getWinner() throws TiedGameException, FutureGameException;
 }

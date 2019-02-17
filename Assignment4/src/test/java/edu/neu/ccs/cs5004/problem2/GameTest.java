@@ -1,5 +1,7 @@
 package edu.neu.ccs.cs5004.problem2;
 
+import static edu.neu.ccs.cs5004.problem2.GameOutcome.*;
+import static edu.neu.ccs.cs5004.problem2.Sport.*;
 import static org.junit.Assert.*;
 
 import java.text.DateFormat;
@@ -22,10 +24,10 @@ public class GameTest {
     seaHawks = new AmericanFootballTeam("Seattle Hawks", nfl);
     chiBears = new AmericanFootballTeam("Chicago Bears", nfl);
     // create game date
-    dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+    dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     gameDate = dateFormat.parse("2018-10-11");
     // set a new game
-    testGame = new Game(Sport.AMERICAN_FOOTBALL,"Seattle Hawks",
+    testGame = new Game(AMERICAN_FOOTBALL,"Seattle Hawks",
         "Chicago Bears", gameDate, 17,24);
   }
 
@@ -42,26 +44,33 @@ public class GameTest {
   @Test
   public void getGameDate() {
     assertEquals(gameDate, testGame.getGameDate());
-    
+    assertEquals("Thu Oct 11 00:00:00 PDT 2018", testGame.getGameDate().toString());
   }
 
   @Test
   public void getHomeScore() {
+    Integer EXPECTED_HOME_SCORE = 17;
+    assertEquals(EXPECTED_HOME_SCORE, testGame.getHomeScore());
   }
 
   @Test
   public void getAwayScore() {
+    Integer EXPECTED_AWAY_SCORE = 24;
+    assertEquals(EXPECTED_AWAY_SCORE, testGame.getAwayScore());
   }
 
   @Test
   public void getSportType() {
+    assertEquals(AMERICAN_FOOTBALL, testGame.getSportType());
   }
 
   @Test
   public void getIsGameTie() {
+    assertEquals(NOT_TIE, testGame.getIsGameTie());
   }
 
   @Test
-  public void getWinner() {
+  public void getWinner() throws FutureGameException, TiedGameException {
+    assertEquals(chiBears.getTeamName(), testGame.getWinner());
   }
 }
