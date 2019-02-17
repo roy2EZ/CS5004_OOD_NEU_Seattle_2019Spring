@@ -1,6 +1,5 @@
 package edu.neu.ccs.cs5004.problem2;
 
-import static edu.neu.ccs.cs5004.problem2.ITeam.GAMES_NUM_OF_FOOTBALL;
 import static org.junit.Assert.*;
 
 import java.text.DateFormat;

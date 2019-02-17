@@ -11,6 +11,10 @@ public class AmericanFootballLeague extends AbstractLeague {
   private Game nextGame;
 
 
+  /**
+   * Constructs an american football league with default parameters
+   * @param leagueName the name of league
+   */
   public AmericanFootballLeague(String leagueName) {
     super(leagueName);
     numOfGames = GAMES_NUM_OF_FOOTBALL;
@@ -47,19 +51,7 @@ public class AmericanFootballLeague extends AbstractLeague {
     return newGame;
   }
 
-  /**
-   * Update a game with the points scored during the game.
-   */
-  @Override
-  public Game leaguePlayGame(Game game, AbstractTeam homeTeam, AbstractTeam awayTeam, Integer homeScore, Integer awayScore)
-      throws FutureGameException, TiedGameException {
-    Game playedGame = new Game(game.getSportType(),game.getHomeTeamName(),
-        game.getAwayTeamName(),game.getGameDate(),
-        homeScore,awayScore);
-    homeTeam.updateTeam(playedGame);
-    awayTeam.updateTeam(playedGame);
-    return playedGame;
-  }
+
 
 
 }

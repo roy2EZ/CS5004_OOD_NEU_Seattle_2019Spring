@@ -1,5 +1,8 @@
 package edu.neu.ccs.cs5004.problem2;
 
+/**
+ * Represents an Abstract League.
+ */
 public abstract class AbstractLeague implements ILeague {
   private String leagueName;
 
@@ -19,8 +22,8 @@ public abstract class AbstractLeague implements ILeague {
    * Compares two teams in the league, return the one with higher points.
    * If two teams are with same points, return the one with higher win game numbers.
    * If two teams are with same points and win game numbers, throws a TiedTeamsException
-   * @param team1
-   * @param team2
+   * @param team1 a team
+   * @param team2 another team
    * @return team with higher points. If with same points, return team with higher winNum.
    * @throws TiedTeamsException If two teams are with same points and win game numbers
    */
@@ -43,6 +46,19 @@ public abstract class AbstractLeague implements ILeague {
 
   }
 
-
+  /**
+   * Update a game with the points scored during the game.
+   */
+  @Override
+  public Game leaguePlayGame(Game game, AbstractTeam homeTeam, AbstractTeam awayTeam,
+      Integer homeScore, Integer awayScore)
+      throws FutureGameException, TiedGameException {
+    Game playedGame = new Game(game.getSportType(),game.getHomeTeamName(),
+        game.getAwayTeamName(),game.getGameDate(),
+        homeScore,awayScore);
+    homeTeam.updateTeam(playedGame);
+    awayTeam.updateTeam(playedGame);
+    return playedGame;
+  }
 
 }

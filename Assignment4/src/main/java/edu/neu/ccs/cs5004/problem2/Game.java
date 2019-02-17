@@ -2,7 +2,6 @@ package edu.neu.ccs.cs5004.problem2;
 
 import java.util.Date;
 import java.util.Calendar;
-import sun.util.calendar.BaseCalendar;
 
 
 /**
@@ -37,7 +36,7 @@ public class Game implements IGame {
     this.awayScore = awayScore;
     this.sportType = sportType;
 
-    if (homeScore == awayScore) {
+    if (this.homeScore.equals(this.awayScore)) {
       this.isGameTie = GameOutcome.TIE;
     } else {
       this.isGameTie = GameOutcome.NOT_TIE;

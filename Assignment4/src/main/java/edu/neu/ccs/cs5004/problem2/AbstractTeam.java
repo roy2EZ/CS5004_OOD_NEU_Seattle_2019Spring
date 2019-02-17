@@ -1,7 +1,7 @@
 package edu.neu.ccs.cs5004.problem2;
 
 /**
- * Represents an abstract team
+ * Represents an abstract team.
  */
 public abstract class AbstractTeam implements ITeam {
   protected String teamName;
@@ -13,9 +13,9 @@ public abstract class AbstractTeam implements ITeam {
   protected Game lastGame;
 
   /**
-   * constructs a general off season team with init 0 to related fields
-   * @param teamName
-   * @param league
+   * constructs a general off season team with init 0 to related fields.
+   * @param teamName the name of team
+   * @param league the league that team in
    */
   public AbstractTeam(String teamName, AbstractLeague league) {
     this.teamName = teamName;
@@ -29,13 +29,13 @@ public abstract class AbstractTeam implements ITeam {
 
   /**
    * a normal constructor with all parameters to initial, for test purpose.
-   * @param teamName
-   * @param league
-   * @param gamePlayedNum
-   * @param gameRemainingNum
-   * @param record
-   * @param point
-   * @param lastGame
+   * @param teamName the name of the team
+   * @param league the league
+   * @param gamePlayedNum how many games played
+   * @param gameRemainingNum how many games remaining
+   * @param record team record of win/draw/lose game numbers
+   * @param point team points
+   * @param lastGame the last game this team play
    */
   public AbstractTeam(String teamName, AbstractLeague league, Integer gamePlayedNum,
       Integer gameRemainingNum, Record record, Point point, Game lastGame) {
@@ -72,6 +72,11 @@ public abstract class AbstractTeam implements ITeam {
     return point;
   }
 
+  /**
+   * get last game of the team
+   * @return last game
+   * @throws InvalidGameException if the team if off season with no last game.
+   */
   public Game getLastGame() throws InvalidGameException {
     if (lastGame == null) {
       throw new InvalidGameException("There is no last game.");

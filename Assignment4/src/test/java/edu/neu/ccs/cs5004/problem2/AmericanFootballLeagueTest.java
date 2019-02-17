@@ -30,11 +30,11 @@ public class AmericanFootballLeagueTest {
     testGame = new Game(Sport.AMERICAN_FOOTBALL,"Seattle Hawks",
         "Chicago Bears", gameDate, 17,24);
     seaHawks = new AmericanFootballTeam("Seattle Hawks", nfl,
-        nfl.getNumOfGames(), 5, 11,
+        GAMES_NUM_OF_FOOTBALL, 5, 11,
         new Record(3,1,1),
         new Point(3,0, 0), testGame);
     chiBears = new AmericanFootballTeam("Chicago Bears", nfl,
-        nfl.getNumOfGames(), 5, 11,
+        GAMES_NUM_OF_FOOTBALL, 5, 11,
         new Record(4,0,1),
         new Point(4,0, 0), testGame);
   }
@@ -107,7 +107,7 @@ public class AmericanFootballLeagueTest {
 
   // play a game test
   @Test
-  public void leaguePlayGame() throws FutureGameException, TiedGameException {
+  public void leaguePlayGame() throws FutureGameException, TiedGameException, InvalidGameException {
     // Step 1: schedule a new game and check the data of each team
     Game newScheduledGame = nfl.scheduleGame(seaHawks, chiBears, gameDate);
     assertEquals(null, newScheduledGame.getHomeScore());
@@ -127,8 +127,8 @@ public class AmericanFootballLeagueTest {
     assertEquals(new Integer(3), seaHawks.getPoint().getTotalPoint());
     assertEquals(new Integer(5), chiBears.getPoint().getTotalPoint());
 
-
-
-
+    // test if the game updated as the last game of two teams
+    assertEquals(playedGame, seaHawks.getLastGame());
+    assertEquals(chiBears.getTeamName(), chiBears.getLastGame().getWinner());
   }
 }

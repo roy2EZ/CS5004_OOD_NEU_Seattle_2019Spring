@@ -1,7 +1,7 @@
 package edu.neu.ccs.cs5004.problem2;
 
 /**
- * Represents an American Football team
+ * Represents an American Football team/
  */
 public class AmericanFootballTeam extends AbstractTeam {
   private final Integer WIN_POINT_PER_GAME = 1;
@@ -41,12 +41,13 @@ public class AmericanFootballTeam extends AbstractTeam {
     this.gamePlayedNum += 1;
     // update game remaining number.
     this.gameRemainingNum = GAMES_NUM_OF_FOOTBALL - this.gamePlayedNum;
+
     // update win/draw/lose record of this team, base on result of that game.
     if (game.getIsGameTie() == GameOutcome.TIE) {
       this.record = new Record(this.record.getWinNum(),
           this.record.getDrawNum() + 1, this.record.getLoseNum());
     } else {
-      if (this.teamName == game.getWinner()) {
+      if (this.teamName.equals(game.getWinner())) {
         this.record = new Record(this.record.getWinNum() + 1,
             this.record.getDrawNum(), this.record.getLoseNum());
       } else {
