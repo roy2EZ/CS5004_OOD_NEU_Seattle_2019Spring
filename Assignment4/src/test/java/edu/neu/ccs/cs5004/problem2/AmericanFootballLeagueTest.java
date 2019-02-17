@@ -30,11 +30,11 @@ public class AmericanFootballLeagueTest {
     testGame = new Game(Sport.AMERICAN_FOOTBALL,"Seattle Hawks",
         "Chicago Bears", gameDate, 17,24);
     seaHawks = new AmericanFootballTeam("Seattle Hawks", nfl,
-        GAMES_NUM_OF_FOOTBALL, 5, 11,
+         5, 11,
         new Record(3,1,1),
         new Point(3,0, 0), testGame);
     chiBears = new AmericanFootballTeam("Chicago Bears", nfl,
-        GAMES_NUM_OF_FOOTBALL, 5, 11,
+         5, 11,
         new Record(4,0,1),
         new Point(4,0, 0), testGame);
   }
@@ -77,8 +77,8 @@ public class AmericanFootballLeagueTest {
 
     // Test case 2: compare two teams with same points, return the one with higher winNum
     // generate a team with same points but more winNum with seaHawks, for test purpose
-    AmericanFootballTeam seaHawks2 = new AmericanFootballTeam("Seattle Hawks", nfl,
-        nfl.getNumOfGames(), 5, 11,
+    AmericanFootballTeam seaHawks2 = new AmericanFootballTeam("Seattle Hawks",
+        nfl, 5, 11,
         new Record(5, 0, 0),
         new Point(3, 0, 0), testGame);
     // seaHawks2 should be return
@@ -89,7 +89,7 @@ public class AmericanFootballLeagueTest {
   public void compareTeamsTiedTeamException() throws TiedTeamsException {
     // Test a team with same points and winNum with seaHawks, should throw TiedTeamException
     AmericanFootballTeam testTeam = new AmericanFootballTeam("Seattle Hawks", nfl,
-        nfl.getNumOfGames(), 5, 11,
+        5, 11,
         new Record(3, 1, 1),
         new Point(3, 0, 0), testGame);
     nfl.compareTeams(seaHawks, testTeam);

@@ -22,10 +22,17 @@ public class AmericanFootballTeam extends AbstractTeam {
 
   /**
    * a normal constructor with all parameters to initial, for test purpose.
+   *
+   * @param teamName the name of the team
+   * @param league the league
+   * @param gamePlayedNum how many games played
+   * @param gameRemainingNum how many games remaining
+   * @param record team record of win/draw/lose game numbers
+   * @param point team points
+   * @param lastGame the last game this team play
    */
   public AmericanFootballTeam(String teamName,
-      AmericanFootballLeague league, Integer numOfGames, Integer gamePlayedNum,
-      Integer gameRemainingNum,
+      AbstractLeague league, Integer gamePlayedNum, Integer gameRemainingNum,
       Record record, Point point, Game lastGame) {
     super(teamName, league, gamePlayedNum, gameRemainingNum, record, point, lastGame);
   }
