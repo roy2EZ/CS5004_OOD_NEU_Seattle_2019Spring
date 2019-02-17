@@ -5,7 +5,7 @@ public class BaseballTeam extends AbstractTeam {
   private final Integer LOSE_POINT_PER_GAME = 0;
 
   /**
-   * constructs a general off season team with init 0 to related fields
+   * constructs a general off season team with init 0 to related fields.
    */
   public BaseballTeam(String teamName, BaseballLeague league) {
     super(teamName, league);
@@ -31,7 +31,7 @@ public class BaseballTeam extends AbstractTeam {
   }
 
   /**
-   * update related parameters of a team with a played game result for game without tie sport
+   * update related parameters of a team with a played game result for game without tie sport.
    */
   @Override
   public void updateTeam(Game game) throws FutureGameException, TiedGameException {
@@ -50,8 +50,8 @@ public class BaseballTeam extends AbstractTeam {
     }
 
     // update team's point base on team's record and league rules
-    this.point = new Point(this.record.getWinNum()*WIN_POINT_PER_GAME,
-        this.record.getLoseNum()*LOSE_POINT_PER_GAME);
+    this.point = new Point(this.record.getWinNum() * WIN_POINT_PER_GAME,
+        this.record.getLoseNum() * LOSE_POINT_PER_GAME);
   }
 
 

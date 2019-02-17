@@ -12,7 +12,7 @@ public class AmericanFootballLeague extends AbstractLeague {
 
 
   /**
-   * Constructs an american football league with default parameters
+   * Constructs an american football league with default parameters.
    * @param leagueName the name of league
    */
   public AmericanFootballLeague(String leagueName) {

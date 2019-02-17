@@ -1,11 +1,10 @@
 package edu.neu.ccs.cs5004.problem2;
 
-import java.util.Date;
 import java.util.Calendar;
-
+import java.util.Date;
 
 /**
- * Represents a abstract class of Game
+ * Represents a abstract class of Game.
  */
 public class Game implements IGame {
   protected String homeTeamName;
@@ -17,21 +16,21 @@ public class Game implements IGame {
   private GameOutcome isGameTie;
 
   /**
-   * normal constructor will all parameters need to be input
-   * include isGameTie, for the sports with tie result
-   * this is for test purpose
-   * @param sportType
-   * @param homeTeamName
-   * @param awayTeamName
-   * @param gameDate
-   * @param homeScore
-   * @param awayScore
+   * normal constructor will all parameters need to be input.
+   * include isGameTie, for the sports with tie result.
+   * this is for test purpose.
+   * @param sportType sport type
+   * @param homeTeamName home Team Name
+   * @param awayTeamName away Team Name
+   * @param gameDate game Date
+   * @param homeScore home Score
+   * @param awayScore away Score
    */
   public Game(Sport sportType, String homeTeamName, String awayTeamName,
       Date gameDate, Integer homeScore, Integer awayScore) {
     this.homeTeamName = homeTeamName;
     this.awayTeamName = awayTeamName;
-    this.gameDate = gameDate;
+    this.gameDate = (Date)gameDate.clone();
     this.homeScore = homeScore;
     this.awayScore = awayScore;
     this.sportType = sportType;
@@ -46,16 +45,16 @@ public class Game implements IGame {
 
   /**
    * constructs a game for scheduleGame() method in League.
-   * @param homeTeamName
-   * @param awayTeamName
-   * @param gameDate
-   * @param sportType
+   * @param homeTeamName homeTeamName
+   * @param awayTeamName awayTeamName
+   * @param gameDate gameDate
+   * @param sportType sportType
    */
   public Game(Sport sportType, String homeTeamName, String awayTeamName, Date gameDate) {
     this.sportType = sportType;
     this.homeTeamName = homeTeamName;
     this.awayTeamName = awayTeamName;
-    this.gameDate = gameDate;
+    this.gameDate = (Date)gameDate.clone();
 
   }
 
@@ -68,7 +67,7 @@ public class Game implements IGame {
   }
 
   public Date getGameDate() {
-    return gameDate;
+    return (Date)gameDate.clone();
   }
 
   public Integer getHomeScore() {
@@ -88,7 +87,7 @@ public class Game implements IGame {
   }
 
   /**
-   * update the game class with scores of two team got in the game
+   * update the game class with scores of two team got in the game.
    */
   @Override
   public void playGameAndUpdateTeam(Integer homeScore, Integer awayScore) {
@@ -97,22 +96,22 @@ public class Game implements IGame {
 
 
   /**
-   * get the name of winning team of the game
-   * @return a string of winner team's name
-   * @throws TiedGameException
-   * @throws FutureGameException
+   * get the name of winning team of the game.
+   * @return a string of winner team's name.
+   * @throws TiedGameException if game tie but calling this method
+   * @throws FutureGameException if game in the future
    */
   @Override
   public String getWinner() throws TiedGameException, FutureGameException {
     Calendar calendar =  Calendar.getInstance();
     Date today = calendar.getTime();
-    if (this.getGameDate().after(today)){
+    if (this.getGameDate().after(today)) {
       throw new FutureGameException("Game is not played yet.");
     }
     if (this.isGameTie == GameOutcome.TIE) {
       throw new TiedGameException("No winner of this Game. Game is tie.");
     } else {
-      if (homeScore>awayScore) {
+      if (homeScore > awayScore) {
         return homeTeamName;
       } else {
         return awayTeamName;

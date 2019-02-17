@@ -10,6 +10,10 @@ public class BaseballLeague extends AbstractLeague {
   private final Integer endMonth;
   private Game nextGame;
 
+  /**
+   * construct a baseball league.
+   * @param leagueName league name
+   */
   public BaseballLeague(String leagueName) {
     super(leagueName);
     numOfGames = GAMES_NUM_OF_BASEBALL;

@@ -10,6 +10,10 @@ public class SoccerLeague extends AbstractLeague {
   private final Integer endMonth;
   private Game nextGame;
 
+  /**
+   * constructs a soccer league.
+   * @param leagueName league name
+   */
   public SoccerLeague(String leagueName) {
     super(leagueName);
     numOfGames = GAMES_NUM_OF_SOCCER;
@@ -39,8 +43,8 @@ public class SoccerLeague extends AbstractLeague {
   }
 
   /**
-   * Create a game between two teams on a given date. When a game is created, it should be recorded
-   * as the next game in the league.
+   * Create a game between two teams on a given date.
+   * When a game is created, it should be recorded as the next game in the league.
    */
   @Override
   public Game scheduleGame(AbstractTeam homeTeam, AbstractTeam awayTeam, Date gameDate) {

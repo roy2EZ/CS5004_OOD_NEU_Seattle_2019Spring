@@ -1,7 +1,7 @@
 package edu.neu.ccs.cs5004.problem2;
 
 /**
- * represents the points a team having now in a season
+ * represents the points a team having now in a season.
  * in different League, the rules to get points from a game is different designed.
  */
 public class Point {
@@ -10,13 +10,11 @@ public class Point {
   private Integer losePoint;
   private Integer totalPoint;
 
-
-
   /**
-   * constructs point for League with win, lose and draw game result
-   * @param winPoint
-   * @param drawPoint
-   * @param losePoint
+   * constructs point for League with win, lose and draw game result.
+   * @param winPoint win point
+   * @param drawPoint draw point
+   * @param losePoint lose point
    */
   public Point(Integer winPoint, Integer drawPoint, Integer losePoint) {
     this.winPoint = winPoint;
@@ -25,9 +23,9 @@ public class Point {
     this.totalPoint = this.winPoint + this.drawPoint + this.losePoint;
   }
   /**
-   * constructs point for League without draw game result
-   * @param winPoint
-   * @param losePoint
+   * constructs point for League without draw game result.
+   * @param winPoint win point
+   * @param losePoint lose point
    */
   public Point(Integer winPoint, Integer losePoint) {
     this.winPoint = winPoint;

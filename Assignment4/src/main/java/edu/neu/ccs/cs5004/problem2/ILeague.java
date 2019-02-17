@@ -9,22 +9,33 @@ public interface ILeague {
 
   /**
    * Given two teams, return the team that has the most points.
-   * @param team1
-   * @param team2
-   * @return
+   * @param team1 team 1
+   * @param team2 team 2
+   * @return a team with higher points
    */
   AbstractTeam compareTeams(AbstractTeam team1, AbstractTeam team2) throws TiedTeamsException;
 
   /**
    * Create a game between two teams on a given date.
    * When a game is created, it should be recorded as the next game in the league.
-   * @param homeTeam
-   * @param awayTeam
-   * @param gameDate
+   * @param homeTeam home team
+   * @param awayTeam away team
+   * @param gameDate game date
    */
   Game scheduleGame(AbstractTeam homeTeam, AbstractTeam awayTeam, Date gameDate);
 
 
+  /**
+   * play a game and update relate fields of game and teams.
+   * @param game game
+   * @param homeTeam home team
+   * @param awayTeam away team
+   * @param homeScore home team score
+   * @param awayScore away team score
+   * @return the updated game
+   * @throws FutureGameException if game in future
+   * @throws TiedGameException if game is tie but want to get winner
+   */
   Game leaguePlayGame(Game game, AbstractTeam homeTeam, AbstractTeam awayTeam, Integer homeScore,
       Integer awayScore)
       throws FutureGameException, TiedGameException;

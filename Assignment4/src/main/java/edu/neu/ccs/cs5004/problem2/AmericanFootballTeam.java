@@ -1,7 +1,7 @@
 package edu.neu.ccs.cs5004.problem2;
 
 /**
- * Represents an American Football team/
+ * Represents an American Football team.
  */
 public class AmericanFootballTeam extends AbstractTeam {
   private final Integer WIN_POINT_PER_GAME = 1;
@@ -9,9 +9,9 @@ public class AmericanFootballTeam extends AbstractTeam {
   private final Integer DRAW_POINT_PER_GAME = 0;
 
   /**
-   * constructs an American Football team with off season initial data
-   * @param teamName
-   * @param league
+   * constructs an American Football team with off season initial data.
+   * @param teamName team name
+   * @param league league
    */
   public AmericanFootballTeam(String teamName, AmericanFootballLeague league) {
     super(teamName, league);
@@ -32,9 +32,10 @@ public class AmericanFootballTeam extends AbstractTeam {
    * @param lastGame the last game this team play
    */
   public AmericanFootballTeam(String teamName,
-      AbstractLeague league, Integer gamePlayedNum, Integer gameRemainingNum,
+      AmericanFootballLeague league, Integer gamePlayedNum, Integer gameRemainingNum,
       Record record, Point point, Game lastGame) {
-    super(teamName, league, gamePlayedNum, gameRemainingNum, record, point, lastGame);
+    super(teamName, league, gamePlayedNum,
+        gameRemainingNum, record, point, lastGame);
   }
 
   /**
@@ -63,9 +64,9 @@ public class AmericanFootballTeam extends AbstractTeam {
       }
     }
     // update team's point base on team's record and league rules
-    this.point = new Point(this.record.getWinNum()*WIN_POINT_PER_GAME,
-        this.record.getDrawNum()*DRAW_POINT_PER_GAME,
-        this.record.getLoseNum()*LOSE_POINT_PER_GAME);
+    this.point = new Point(this.record.getWinNum() * WIN_POINT_PER_GAME,
+        this.record.getDrawNum() * DRAW_POINT_PER_GAME,
+        this.record.getLoseNum() * LOSE_POINT_PER_GAME);
   }
 
 

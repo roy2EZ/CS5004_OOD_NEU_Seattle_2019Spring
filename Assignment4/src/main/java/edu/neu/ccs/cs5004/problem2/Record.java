@@ -1,7 +1,7 @@
 package edu.neu.ccs.cs5004.problem2;
 
 /**
- * represents a record with winning, losing and/or draw games of team performance in the season
+ * represents a record with winning, losing and/or draw games of team performance in the season.
  */
 public class Record {
   private Integer winNum;
