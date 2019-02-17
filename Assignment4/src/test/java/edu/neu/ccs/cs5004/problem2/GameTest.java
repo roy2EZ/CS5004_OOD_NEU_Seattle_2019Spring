@@ -17,6 +17,8 @@ public class GameTest {
   private Game testGame;
   private DateFormat dateFormat;
   private Date gameDate;
+  private Date gameFutureDate;
+
 
   @Before
   public void setUp() throws Exception {
@@ -26,6 +28,7 @@ public class GameTest {
     // create game date
     dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     gameDate = dateFormat.parse("2018-10-11");
+    gameFutureDate = dateFormat.parse("2019-12-20");
     // set a new game
     testGame = new Game(AMERICAN_FOOTBALL,"Seattle Hawks",
         "Chicago Bears", gameDate, 17,24);
@@ -72,5 +75,26 @@ public class GameTest {
   @Test
   public void getWinner() throws FutureGameException, TiedGameException {
     assertEquals(chiBears.getTeamName(), testGame.getWinner());
+  }
+
+
+
+  @Test
+  public void playGameAndUpdateTeam() {
+  }
+
+
+  @Test(expected = FutureGameException.class)
+  public void getWinnerFutureException() throws FutureGameException, TiedGameException {
+    Game futureGame = new Game(AMERICAN_FOOTBALL,"Seattle Hawks",
+        "Chicago Bears", gameFutureDate, 14,10);
+    futureGame.getWinner();
+  }
+
+  @Test(expected = TiedGameException.class)
+  public void getWinnerTiedGameException() throws FutureGameException, TiedGameException {
+    Game tiedGame = new Game(AMERICAN_FOOTBALL,"Seattle Hawks",
+        "Chicago Bears", gameDate, 14,14);
+    tiedGame.getWinner();
   }
 }

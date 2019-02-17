@@ -68,8 +68,12 @@ public class Game implements IGame {
 
   }
 
+
   /**
-   * get the name of winning team of the abstractGame
+   * get the name of winning team of the game
+   * @return a string of winner team's name
+   * @throws TiedGameException
+   * @throws FutureGameException
    */
   @Override
   public String getWinner() throws TiedGameException, FutureGameException {
@@ -78,7 +82,6 @@ public class Game implements IGame {
     if (this.getGameDate().after(today)){
       throw new FutureGameException("Game is not played yet.");
     }
-
     if (this.isGameTie == GameOutcome.TIE) {
       throw new TiedGameException("No winner of this Game. Game is tie.");
     } else {
