@@ -5,7 +5,7 @@ package edu.neu.ccs.cs5004.problem2;
  */
 public abstract class AbstractTeam implements ITeam {
   protected String teamName;
-  protected AbstractLeague League;
+  protected AbstractLeague league;
   protected Integer gamePlayedNum;
   protected Integer gameRemainingNum;
   protected Record record;
@@ -19,7 +19,7 @@ public abstract class AbstractTeam implements ITeam {
    */
   public AbstractTeam(String teamName, AbstractLeague league) {
     this.teamName = teamName;
-    League = league;
+    this.league = league;
     this.gamePlayedNum = 0;
     this.gameRemainingNum = 0;
     this.record = null;
@@ -27,12 +27,33 @@ public abstract class AbstractTeam implements ITeam {
     this.lastGame = null;
   }
 
+  /**
+   * a normal constructor with all parameters to initial, for test purpose.
+   * @param teamName
+   * @param league
+   * @param gamePlayedNum
+   * @param gameRemainingNum
+   * @param record
+   * @param point
+   * @param lastGame
+   */
+  public AbstractTeam(String teamName, AbstractLeague league, Integer gamePlayedNum,
+      Integer gameRemainingNum, Record record, Point point, Game lastGame) {
+    this.teamName = teamName;
+    this.league = league;
+    this.gamePlayedNum = gamePlayedNum;
+    this.gameRemainingNum = gameRemainingNum;
+    this.record = record;
+    this.point = point;
+    this.lastGame = lastGame;
+  }
+
   public String getTeamName() {
     return teamName;
   }
 
   public AbstractLeague getLeague() {
-    return League;
+    return league;
   }
 
   public Integer getGamePlayedNum() {

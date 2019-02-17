@@ -9,14 +9,18 @@ public class AmericanFootballLeague extends AbstractLeague {
   private final Integer startMonth;
   private final Integer endMonth;
 
+  /**
+   * a constructor for initialize an off season team
+   * @param leagueName
+   */
   public AmericanFootballLeague(String leagueName) {
     super(leagueName);
-
     numOfGames = GAMES_NUM_OF_FOOTBALL;
     leagueType = Sport.AMERICAN_FOOTBALL;
     startMonth = 9;
     endMonth = 12;
   }
+
 
   public Integer getNumOfGames() {
     return numOfGames;
@@ -32,14 +36,6 @@ public class AmericanFootballLeague extends AbstractLeague {
 
   public Integer getEndMonth() {
     return endMonth;
-  }
-
-  /**
-   * Given two teams, return the team that has the most points.
-   */
-  @Override
-  public AbstractTeam compareTeams(AbstractTeam team1, AbstractTeam team2) {
-    return null;
   }
 
   /**

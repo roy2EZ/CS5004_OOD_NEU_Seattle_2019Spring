@@ -8,6 +8,9 @@ public class Point {
   private Integer winPoint;
   private Integer drawPoint;
   private Integer losePoint;
+  private Integer totalPoint;
+
+
 
   /**
    * constructs point for League with win, lose and draw game result
@@ -19,6 +22,7 @@ public class Point {
     this.winPoint = winPoint;
     this.drawPoint = drawPoint;
     this.losePoint = losePoint;
+    this.totalPoint = this.winPoint + this.drawPoint + this.losePoint;
   }
   /**
    * constructs point for League without draw game result
@@ -28,6 +32,7 @@ public class Point {
   public Point(Integer winPoint, Integer losePoint) {
     this.winPoint = winPoint;
     this.losePoint = losePoint;
+    this.totalPoint = this.winPoint + this.losePoint;
   }
 
   public Integer getWinPoint() {
@@ -40,5 +45,9 @@ public class Point {
 
   public Integer getLosePoint() {
     return losePoint;
+  }
+
+  public Integer getTotalPoint() {
+    return totalPoint;
   }
 }

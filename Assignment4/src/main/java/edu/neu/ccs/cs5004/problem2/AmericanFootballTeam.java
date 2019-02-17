@@ -8,11 +8,26 @@ public class AmericanFootballTeam extends AbstractTeam {
   private final Integer LOSE_POINT_PER_GAME = 0;
   private final Integer DRAW_POINT_PER_GAME = 0;
 
-  public AmericanFootballTeam(String teamName, AbstractLeague league) {
+  /**
+   * constructs an American Football team with off season initial data
+   * @param teamName
+   * @param league
+   */
+  public AmericanFootballTeam(String teamName, AmericanFootballLeague league) {
     super(teamName, league);
     this.record = new Record(0,0,0);
     this.point = new Point(0,0,0);
     this.lastGame = null;
+  }
+
+  /**
+   * a normal constructor with all parameters to initial, for test purpose.
+   */
+  public AmericanFootballTeam(String teamName,
+      AmericanFootballLeague league, Integer numOfGames, Integer gamePlayedNum,
+      Integer gameRemainingNum,
+      Record record, Point point, Game lastGame) {
+    super(teamName, league, gamePlayedNum, gameRemainingNum, record, point, lastGame);
   }
 
   /**

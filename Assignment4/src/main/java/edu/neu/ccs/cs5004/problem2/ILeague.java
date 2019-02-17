@@ -13,7 +13,7 @@ public interface ILeague {
    * @param team2
    * @return
    */
-  AbstractTeam compareTeams(AbstractTeam team1, AbstractTeam team2);
+  AbstractTeam compareTeams(AbstractTeam team1, AbstractTeam team2) throws TiedTeamsException;
 
   /**
    * Create a game between two teams on a given date.
