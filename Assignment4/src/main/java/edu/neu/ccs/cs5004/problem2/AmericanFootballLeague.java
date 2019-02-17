@@ -1,6 +1,6 @@
 package edu.neu.ccs.cs5004.problem2;
 
-import sun.util.calendar.BaseCalendar.Date;
+import java.util.Date;
 
 public class AmericanFootballLeague extends AbstractLeague {
 
@@ -8,11 +8,9 @@ public class AmericanFootballLeague extends AbstractLeague {
   private final Sport leagueType;
   private final Integer startMonth;
   private final Integer endMonth;
+  private Game nextGame;
 
-  /**
-   * a constructor for initialize an off season team
-   * @param leagueName
-   */
+
   public AmericanFootballLeague(String leagueName) {
     super(leagueName);
     numOfGames = GAMES_NUM_OF_FOOTBALL;
@@ -21,6 +19,9 @@ public class AmericanFootballLeague extends AbstractLeague {
     endMonth = 12;
   }
 
+  public Game getNextGame() {
+    return nextGame;
+  }
 
   public Integer getNumOfGames() {
     return numOfGames;
@@ -38,20 +39,27 @@ public class AmericanFootballLeague extends AbstractLeague {
     return endMonth;
   }
 
-  /**
-   * Create a game between two teams on a given date. When a game is created, it should be recorded
-   * as the next game in the league.
-   */
   @Override
   public Game scheduleGame(AbstractTeam homeTeam, AbstractTeam awayTeam, Date gameDate) {
-    return null;
+    Game newGame = new Game(Sport.AMERICAN_FOOTBALL, homeTeam.getTeamName(),
+        awayTeam.getTeamName(), gameDate);
+    this.nextGame = newGame;
+    return newGame;
   }
 
   /**
    * Update a game with the points scored during the game.
    */
   @Override
-  public void leaguePlayGame(Game game, Integer homeScore, Integer awayScore) {
-
+  public Game leaguePlayGame(Game game, AbstractTeam homeTeam, AbstractTeam awayTeam, Integer homeScore, Integer awayScore)
+      throws FutureGameException, TiedGameException {
+    Game playedGame = new Game(game.getSportType(),game.getHomeTeamName(),
+        game.getAwayTeamName(),game.getGameDate(),
+        homeScore,awayScore);
+    homeTeam.updateTeam(playedGame);
+    awayTeam.updateTeam(playedGame);
+    return playedGame;
   }
+
+
 }

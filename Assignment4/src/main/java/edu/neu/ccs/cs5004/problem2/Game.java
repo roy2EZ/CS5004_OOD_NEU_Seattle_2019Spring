@@ -2,7 +2,8 @@ package edu.neu.ccs.cs5004.problem2;
 
 import java.util.Date;
 import java.util.Calendar;
-import javax.swing.plaf.FontUIResource;
+import sun.util.calendar.BaseCalendar;
+
 
 /**
  * Represents a abstract class of Game
@@ -16,6 +17,17 @@ public class Game implements IGame {
   protected Sport sportType;
   private GameOutcome isGameTie;
 
+  /**
+   * normal constructor will all parameters need to be input
+   * include isGameTie, for the sports with tie result
+   * this is for test purpose
+   * @param sportType
+   * @param homeTeamName
+   * @param awayTeamName
+   * @param gameDate
+   * @param homeScore
+   * @param awayScore
+   */
   public Game(Sport sportType, String homeTeamName, String awayTeamName,
       Date gameDate, Integer homeScore, Integer awayScore) {
     this.homeTeamName = homeTeamName;
@@ -30,6 +42,22 @@ public class Game implements IGame {
     } else {
       this.isGameTie = GameOutcome.NOT_TIE;
     }
+  }
+
+
+  /**
+   * constructs a game for scheduleGame() method in League.
+   * @param homeTeamName
+   * @param awayTeamName
+   * @param gameDate
+   * @param sportType
+   */
+  public Game(Sport sportType, String homeTeamName, String awayTeamName, Date gameDate) {
+    this.sportType = sportType;
+    this.homeTeamName = homeTeamName;
+    this.awayTeamName = awayTeamName;
+    this.gameDate = gameDate;
+
   }
 
   public String getHomeTeamName() {

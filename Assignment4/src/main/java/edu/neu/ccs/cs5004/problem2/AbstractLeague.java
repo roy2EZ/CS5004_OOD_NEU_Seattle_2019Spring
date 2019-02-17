@@ -1,10 +1,8 @@
 package edu.neu.ccs.cs5004.problem2;
 
-import sun.util.calendar.BaseCalendar.Date;
-
-
 public abstract class AbstractLeague implements ILeague {
   private String leagueName;
+
 
 
   public AbstractLeague(String leagueName) {
@@ -17,6 +15,15 @@ public abstract class AbstractLeague implements ILeague {
     return leagueName;
   }
 
+  /**
+   * Compares two teams in the league, return the one with higher points.
+   * If two teams are with same points, return the one with higher win game numbers.
+   * If two teams are with same points and win game numbers, throws a TiedTeamsException
+   * @param team1
+   * @param team2
+   * @return team with higher points. If with same points, return team with higher winNum.
+   * @throws TiedTeamsException If two teams are with same points and win game numbers
+   */
   @Override
   public AbstractTeam compareTeams(AbstractTeam team1, AbstractTeam team2)
       throws TiedTeamsException {
@@ -35,4 +42,7 @@ public abstract class AbstractLeague implements ILeague {
     }
 
   }
+
+
+
 }

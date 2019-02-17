@@ -1,6 +1,6 @@
 package edu.neu.ccs.cs5004.problem2;
 
-import sun.util.calendar.BaseCalendar.Date;
+import java.util.Date;
 
 public interface ILeague {
   Integer GAMES_NUM_OF_FOOTBALL = 16;
@@ -24,11 +24,8 @@ public interface ILeague {
    */
   Game scheduleGame(AbstractTeam homeTeam, AbstractTeam awayTeam, Date gameDate);
 
-  /**
-   * Update a game with the points scored during the game.
-   * @param game
-   * @param homeScore
-   * @param awayScore
-   */
-  void leaguePlayGame( Game game, Integer homeScore, Integer awayScore);
+
+  Game leaguePlayGame(Game game, AbstractTeam homeTeam, AbstractTeam awayTeam, Integer homeScore,
+      Integer awayScore)
+      throws FutureGameException, TiedGameException;
 }

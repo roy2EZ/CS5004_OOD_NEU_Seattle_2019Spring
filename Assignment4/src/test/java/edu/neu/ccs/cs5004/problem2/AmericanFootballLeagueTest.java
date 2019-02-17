@@ -39,6 +39,7 @@ public class AmericanFootballLeagueTest {
         new Point(4,0, 0), testGame);
   }
 
+  // getters tests ---------------------------------------------------------------------------------
   @Test
   public void getLeagueName() {
     assertEquals("NFL", nfl.getLeagueName());
@@ -67,6 +68,7 @@ public class AmericanFootballLeagueTest {
 
   }
 
+  // compareTeams() method related tests -----------------------------------------------------------
   @Test
   public void compareTeams() throws TiedTeamsException {
     // Test case 1: compare two teams and return the one with higher points
@@ -91,5 +93,42 @@ public class AmericanFootballLeagueTest {
         new Record(3, 1, 1),
         new Point(3, 0, 0), testGame);
     nfl.compareTeams(seaHawks, testTeam);
+  }
+
+  // schedule a game test
+  @Test
+  public void scheduleGame() {
+    nfl.scheduleGame(seaHawks, chiBears, gameDate);
+    assertEquals("Seattle Hawks",nfl.getNextGame().getHomeTeamName());
+    assertEquals("Chicago Bears",nfl.getNextGame().getAwayTeamName());
+    assertEquals(gameDate, nfl.getNextGame().getGameDate());
+    assertEquals(Sport.AMERICAN_FOOTBALL, nfl.getNextGame().getSportType());
+  }
+
+  // play a game test
+  @Test
+  public void leaguePlayGame() throws FutureGameException, TiedGameException {
+    // Step 1: schedule a new game and check the data of each team
+    Game newScheduledGame = nfl.scheduleGame(seaHawks, chiBears, gameDate);
+    assertEquals(null, newScheduledGame.getHomeScore());
+    assertEquals(new Integer(5), seaHawks.getGamePlayedNum());
+    assertEquals(new Integer(5), chiBears.getGamePlayedNum());
+    assertEquals(new Integer(1), seaHawks.getRecord().getLoseNum());
+    assertEquals(new Integer(4), chiBears.getRecord().getWinNum());
+    assertEquals(new Integer(3), seaHawks.getPoint().getTotalPoint());
+
+    // Step 2: play the scheduled game, check the related data of each team base on game result
+    Game playedGame = nfl.leaguePlayGame(newScheduledGame, seaHawks, chiBears,14,21);
+    assertEquals(new Integer(14), playedGame.getHomeScore());
+    assertEquals(new Integer(6), seaHawks.getGamePlayedNum());
+    assertEquals(new Integer(6), chiBears.getGamePlayedNum());
+    assertEquals(new Integer(2), seaHawks.getRecord().getLoseNum());
+    assertEquals(new Integer(5), chiBears.getRecord().getWinNum());
+    assertEquals(new Integer(3), seaHawks.getPoint().getTotalPoint());
+    assertEquals(new Integer(5), chiBears.getPoint().getTotalPoint());
+
+
+
+
   }
 }
