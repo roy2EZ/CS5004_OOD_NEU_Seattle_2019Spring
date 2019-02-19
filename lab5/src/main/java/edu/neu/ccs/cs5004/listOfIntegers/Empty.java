@@ -52,4 +52,9 @@ public class Empty implements List {
     public Integer last() throws InvalidCallException {
         throw new InvalidCallException("Called last() on empty!");
     }
+
+    @Override
+    public Boolean contains(Integer element) {
+        return false;
+    }
 }

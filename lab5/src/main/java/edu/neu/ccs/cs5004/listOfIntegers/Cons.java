@@ -1,5 +1,7 @@
 package edu.neu.ccs.cs5004.listOfIntegers;
 
+import java.util.concurrent.atomic.AtomicReference;
+
 /**
  * Represents a non-emty list of integers
  *
@@ -64,6 +66,8 @@ public class Cons implements List {
     }
 
 
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -90,6 +94,19 @@ public class Cons implements List {
             + ", rest=" + rest
             + '}';
     }
+
+    @Override
+    public Boolean contains(Integer element) {
+        if (element.equals(this.first)) {
+            return true;
+        } else if (this.rest.isEmpty()){
+            return false;
+        } else {
+            return this.rest.contains(element);
+        }
+
+    }
+
 
 
 }

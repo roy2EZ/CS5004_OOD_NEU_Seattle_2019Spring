@@ -34,4 +34,13 @@ public interface List {
      * @return the last element of this list.
      */
     Integer last();
+
+    /**
+     * returns true if element is in the list and false otherwise.
+     * @param element the element to be searched
+     * @return true if element is in the list and false otherwise.
+     */
+    Boolean contains(Integer element);
+
+
 }

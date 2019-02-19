@@ -31,7 +31,7 @@ public class ListTest {
     Assert.assertEquals(this.threeElements.last(), new Integer(10));
   }
 
-  @Test(expected= InvalidCallException.class)
+  @Test(expected = InvalidCallException.class)
   public void testLastOnEmpty() throws Exception {
     this.empty.last();
   }
@@ -39,5 +39,18 @@ public class ListTest {
   @Test
   public void testLastOnEmptyWithNoTry() throws Exception {
 //        this.empty.last();
+  }
+
+  @Test
+  public void contains() {
+    Assert.assertTrue(this.threeElements.contains(new Integer(20)));
+    Assert.assertTrue(this.threeElements.contains(new Integer(10)));
+    Assert.assertTrue(this.threeElements.contains(new Integer(30)));
+    Assert.assertFalse(this.twoElements.contains(new Integer(30)));
+    Assert.assertFalse(this.oneElement.contains(new Integer(20)));
+    Assert.assertFalse(this.empty.contains(new Integer(10)));
+
+
+
   }
 }
