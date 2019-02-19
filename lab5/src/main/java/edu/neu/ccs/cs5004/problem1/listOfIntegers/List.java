@@ -1,4 +1,4 @@
-package edu.neu.ccs.cs5004.listOfIntegers;
+package edu.neu.ccs.cs5004.problem1.listOfIntegers;
 
 /**
  * Represents a List of Integers
@@ -42,5 +42,17 @@ public interface List {
      */
     Boolean contains(Integer element);
 
+    /**
+     * returns the element found at index in the list.
+     * should deal with the situations where the value
+     * of index provided is outside the bounds of list
+     * @param index
+     * @return
+     */
+    Integer elementAt(Integer index) throws IndexOutOfBoundsException;
 
+
+    Integer getFirst();
+
+    List getRest();
 }

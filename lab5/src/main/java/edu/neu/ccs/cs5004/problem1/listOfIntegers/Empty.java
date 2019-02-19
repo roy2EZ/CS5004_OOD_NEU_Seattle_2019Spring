@@ -1,4 +1,4 @@
-package edu.neu.ccs.cs5004.listOfIntegers;
+package edu.neu.ccs.cs5004.problem1.listOfIntegers;
 
 /**
  * Represents the empty list of integers.
@@ -56,5 +56,24 @@ public class Empty implements List {
     @Override
     public Boolean contains(Integer element) {
         return false;
+    }
+
+    /**
+     * returns the element found at index in the list. should deal with the situations where the value
+     * of index provided is outside the bounds of list
+     */
+    @Override
+    public Integer elementAt(Integer index) throws IndexOutOfBoundsException {
+        throw new IndexOutOfBoundsException("Called elementAt() on empty!");
+    }
+
+    @Override
+    public Integer getFirst() {
+        return null;
+    }
+
+    @Override
+    public List getRest() {
+        return null;
     }
 }

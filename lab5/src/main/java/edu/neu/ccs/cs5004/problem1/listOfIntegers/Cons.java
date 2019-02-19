@@ -1,4 +1,5 @@
-package edu.neu.ccs.cs5004.listOfIntegers;
+package edu.neu.ccs.cs5004.problem1.listOfIntegers;
+
 
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -65,9 +66,6 @@ public class Cons implements List {
 
     }
 
-
-
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -95,6 +93,12 @@ public class Cons implements List {
             + '}';
     }
 
+    /**
+     * returns true if element is in the list and false otherwise.
+     *
+     * @param element the element to be searched
+     * @return true if element is in the list and false otherwise.
+     */
     @Override
     public Boolean contains(Integer element) {
         if (element.equals(this.first)) {
@@ -104,9 +108,26 @@ public class Cons implements List {
         } else {
             return this.rest.contains(element);
         }
-
     }
 
-
-
+    /**
+     * returns the element found at index in the list. should deal with the situations where the value
+     * of index provided is outside the bounds of list
+     */
+    @Override
+    public Integer elementAt(Integer index) throws IndexOutOfBoundsException {
+        AtomicReference<Cons> tempList = new AtomicReference<>(
+            new Cons(this.getFirst(), this.getRest()));
+        AtomicReference<Integer> temp = new AtomicReference<>(tempList.get().getFirst());
+        if (index < 0 || index >= this.size()) {
+            throw new IndexOutOfBoundsException(String.format(("Index should between 0 and %d"), this.size() - 1));
+        } else for (int i = 0; i <= index; i++) {
+            if (!this.getRest().isEmpty()){
+                 temp.set(tempList.get().getFirst());
+                 tempList.set(new Cons(tempList.get().getRest().getFirst(),
+                     tempList.get().getRest().getRest()));
+            }
+        }
+        return temp.get();
+    }
 }
