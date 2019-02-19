@@ -15,7 +15,7 @@ public class ListTest {
     this.empty = new Empty();
     this.oneElement = new Cons(10, this.empty);
     this.twoElements = new Cons(20, this.oneElement);
-    this.threeElements = new Cons(30, this.twoElements);
+    this.threeElements = this.twoElements.add(30);
   }
 
   @Test
