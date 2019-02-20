@@ -96,7 +96,7 @@ public interface IListOfStrings<String> {
    * @return returns true if all elements of this list are in the list passed as argument
    * and false otherwise
    */
-  Boolean containsAll(IListOfStrings list);
+  Boolean containsAll(ListOfStrings list);
 
   /**
    * takes the maximum String length, and returns a list with all
@@ -104,7 +104,7 @@ public interface IListOfStrings<String> {
    * @param maxStringLen the max string length as filter
    * @return a list with all elements whose length is greater than the maximum length.
    */
-  IListOfStrings filterLagerThan(Integer maxStringLen);
+  ListOfStrings filterLagerThan(Integer maxStringLen);
 
   /**
    * check if the list has at least one duplicate element.

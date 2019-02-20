@@ -42,13 +42,8 @@ public abstract class AbstractListOfStrings<String> implements IListOfStrings<St
   }
 
   @Override
-  public IListOfStrings set(int index, String element) {
+  public ListOfStrings set(int index, String element) {
     return null;
-  }
-
-  @Override
-  public Boolean contains(String element) {
-    return false;
   }
 
   @Override
@@ -75,4 +70,5 @@ public abstract class AbstractListOfStrings<String> implements IListOfStrings<St
   public int size() {
     return size;
   }
+
 }

@@ -155,4 +155,46 @@ public class ListOfStringsTest {
     assertFalse(testList.contains("don't"));
 
   }
+
+  @Test
+  public void containsAll() {
+    testList.add("I");
+    testList.add("really");
+    testList.add("love");
+    testList.add("Java");
+    testList.add("very");
+    testList.add("much");
+
+    ListOfStrings anotherList = new ListOfStrings();
+    anotherList.add("I");
+    anotherList.add("love");
+    anotherList.add("Java");
+    assertTrue(testList.containsAll(anotherList));
+
+    ListOfStrings notContainsList = new ListOfStrings();
+    notContainsList.add("I");
+    notContainsList.add("hate");
+    notContainsList.add("C");
+    assertFalse(testList.containsAll(notContainsList));
+
+  }
+
+  @Test
+  public void filterLagerThan() {
+    testList.add("I");
+    testList.add("really");
+    testList.add("love");
+    testList.add("Java");
+    testList.add("a");
+    testList.add("lot");
+
+    assertEquals(1,testList.filterLagerThan(5).size());
+    assertTrue(testList.filterLagerThan(5).contains("really"));
+    assertEquals(3,testList.filterLagerThan(4).size());
+    assertTrue(testList.filterLagerThan(4).contains("really"));
+    assertTrue(testList.filterLagerThan(4).contains("love"));
+    assertTrue(testList.filterLagerThan(4).contains("Java"));
+    assertFalse(testList.filterLagerThan(4).contains("I"));
+
+  }
 }

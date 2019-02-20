@@ -158,13 +158,12 @@ public class ListOfStrings<String> extends AbstractListOfStrings<String> {
    */
   @Override
   public Boolean contains(String element) {
-    Node<String> current=head;
-    for(int i=0;i<size;i++){
+    Node<String> current = head;
+    for(int i = 0; i < size; i++){
       if(current.element.equals(element)){
         return true;
-      }
-      else{
-        current=current.next;
+      } else {
+        current = current.next;
       }
     }
     return false;
@@ -179,8 +178,16 @@ public class ListOfStrings<String> extends AbstractListOfStrings<String> {
    * otherwise
    */
   @Override
-  public Boolean containsAll(IListOfStrings list) {
-    return null;
+  public Boolean containsAll(ListOfStrings list) {
+    Node<String> current = list.head;
+    for (int i = 0; i < list.size(); i++) {
+      if (!this.contains(current.element)) {
+        return false;
+      } else {
+        current = current.next;
+      }
+    }
+    return true;
   }
 
   /**
@@ -191,8 +198,18 @@ public class ListOfStrings<String> extends AbstractListOfStrings<String> {
    * @return a list with all elements whose length is greater than the maximum length.
    */
   @Override
-  public IListOfStrings filterLagerThan(Integer maxStringLen) {
-    return null;
+  public ListOfStrings filterLagerThan(Integer maxStringLen) {
+    Node<String> current = head;
+    ListOfStrings tempList = new ListOfStrings();
+    for (int i = 0; i < this.size(); i++) {
+      if (current.element.toString().length() >= maxStringLen) {
+        tempList.add(current.element);
+        current = current.next;
+      } else {
+        current = current.next;
+      }
+    }
+    return  tempList;
   }
 
   /**
