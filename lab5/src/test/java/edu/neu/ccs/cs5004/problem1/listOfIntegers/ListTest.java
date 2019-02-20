@@ -1,6 +1,7 @@
 package edu.neu.ccs.cs5004.problem1.listOfIntegers;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 public class ListTest {
@@ -10,7 +11,7 @@ public class ListTest {
   private List twoElements;
   private List threeElements;
 
-  @org.junit.Before
+  @Before
   public void setUp() throws Exception {
     this.empty = new Empty();
     this.oneElement = new Cons(10, this.empty);
