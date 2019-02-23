@@ -1,5 +1,7 @@
 package edu.neu.ccs.cs5004.problem2.listOfStrings;
 
+import sun.font.TrueTypeFont;
+
 public class ListOfStrings<String> extends AbstractListOfStrings<String> {
   private Node<String> head, tail;
 
@@ -219,7 +221,22 @@ public class ListOfStrings<String> extends AbstractListOfStrings<String> {
    */
   @Override
   public Boolean hasDuplicates() {
-    return null;
+    ListOfStrings tempList = new ListOfStrings();
+    Node<String> current = this.head;
+    for (int i = 0; i < this.size(); i++) {
+      tempList.add(current.element);
+      current = current.next;
+    }
+    Node<String> temp = tempList.head;
+    for (int i = 0; i < this.size(); i++) {
+      tempList.removeFirst();
+      if (tempList.contains(temp.element)) {
+        return true;
+      } else {
+        temp = temp.next;
+      }
+    }
+    return false;
   }
 
   /**

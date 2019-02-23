@@ -197,4 +197,19 @@ public class ListOfStringsTest {
     assertFalse(testList.filterLagerThan(4).contains("I"));
 
   }
+
+  @Test
+  public void hasDuplicates() {
+    assertFalse(testList.hasDuplicates()); // empty list has not duplicates
+    testList.add("1");
+    testList.add("2");
+    testList.add("3");
+    testList.add("4");
+    testList.add("1");
+    assertEquals("[1,2,3,4,1]", testList.toString());
+    assertTrue(testList.hasDuplicates());
+    testList.removeLast();
+    assertEquals("[1,2,3,4]", testList.toString());
+    assertFalse(testList.hasDuplicates());
+  }
 }
