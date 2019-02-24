@@ -11,7 +11,10 @@ public class PriorityQueue {
     this.array = new Element[maxN + 1];
   }
 
-
+  public Element[] getArray() {
+    return array;
+  }
+  
   /**
    * Check if queue is empty.
    * @return true if queue is empty, false otherwise.
@@ -40,15 +43,33 @@ public class PriorityQueue {
 
   /**
    * Insert the element into the queue.
-   * @param element
+   * @param element insert the element into the queue with correct priority
    */
-  public void add(Element element) {
+  public void insert(Element element) {
+
     if(isFull()) {
       System.out.println("The Priority Queue is full.");
       return;
     }
     array[++N] = element;
     swim(N);
+  }
+
+
+  /**
+   * adds the given value with its associated priority in PQ.
+   * @param priority priority number of the element
+   * @param value string as value in the element
+   * @return the priority queue after element added
+   */
+  public PriorityQueue add(Integer priority, String value) {
+    if(isFull()) {
+      System.out.println("The Priority Queue is full.");
+      return this;
+    }
+    Element element = new Element(priority, value);
+    this.insert(element);
+    return this;
   }
 
   /**
@@ -78,6 +99,18 @@ public class PriorityQueue {
     }
     this.removeHighest();
     return this;
+  }
+
+  /**
+   * returns the value in PQ that has the highest priority.
+   * @return the value in PQ that has the highest priority.
+   * @throws EmptyPQException
+   */
+  public String peek() throws EmptyPQException {
+    if(isEmpty()) {
+      throw new EmptyPQException("Not allowed to peek Empty PQ.");
+    }
+    return this.getArray()[1].value;
   }
 
   // helper methods
