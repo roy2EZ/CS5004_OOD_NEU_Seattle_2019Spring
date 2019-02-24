@@ -246,8 +246,27 @@ public class ListOfStrings<String> extends AbstractListOfStrings<String> {
    */
   @Override
   public IListOfStrings removeDuplicates() {
-    return null;
-  }
+    if (this.hasDuplicates()) {
+      ListOfStrings tempList = new ListOfStrings();
+      Node<String> current = this.head;
+      while (!this.isEmpty()) {
+        if (!tempList.contains(current.element)) {
+          tempList.add(current.element);
+        }
+        this.remove(current.element);
+        if (!this.isEmpty()) {
+          current = current.next;
+        }
+      }
+      // copy the no duplicates tempList back to this original list
+      Node<String> temp = tempList.head;
+      for (int i = 0; i < tempList.size(); i++) {
+        this.add(temp.element);
+        temp = temp.next;
+      }
 
+    }
+    return this;
+  }
 
 }

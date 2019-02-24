@@ -206,10 +206,42 @@ public class ListOfStringsTest {
     testList.add("3");
     testList.add("4");
     testList.add("1");
+    testList.add("3");
+    assertEquals("[1,2,3,4,1,3]", testList.toString());
+    assertTrue(testList.hasDuplicates()); // list has duplicates
+    testList.removeLast(); // remove the last string "3"
     assertEquals("[1,2,3,4,1]", testList.toString());
-    assertTrue(testList.hasDuplicates());
-    testList.removeLast();
+    assertTrue(testList.hasDuplicates()); // list still has duplicates
+    testList.removeFirst(); // remove the first string "1"
+    assertEquals("[2,3,4,1]", testList.toString());
+    assertFalse(testList.hasDuplicates()); // list has no duplicates
+  }
+
+  @Test
+  public void removeDuplicates() {
+    // if list is empty, removeDuplicates() do nothing
+    assertEquals(testList, testList.removeDuplicates());
+    testList.add("1");
+    testList.add("2");
+    testList.add("3");
+    testList.add("4");
+    // if list has no duplicates, removeDuplicates() do nothing
+    assertEquals(testList, testList.removeDuplicates());
+
+    // Add one duplicated element
+    testList.add("1");
+    assertEquals("[1,2,3,4,1]", testList.toString());
+    // the removeDuplicates() method should return a list with the duplicate element removed;
+    testList.removeDuplicates();
     assertEquals("[1,2,3,4]", testList.toString());
-    assertFalse(testList.hasDuplicates());
+
+    // Add two duplicated elements
+    testList.add("4");
+    testList.add("1");
+    assertEquals("[1,2,3,4,4,1]", testList.toString());
+    // remove the duplicated elements
+    testList.removeDuplicates();
+    assertEquals("[1,2,3,4]", testList.toString());
+
   }
 }
