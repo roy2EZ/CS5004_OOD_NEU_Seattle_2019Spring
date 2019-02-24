@@ -1,8 +1,7 @@
 package edu.neu.ccs.cs5004.problem1;
 
 /**
- * Represents elements of a PQ
- * which contains two properties
+ * Represents elements of a PQ which contains two properties.
  */
 public class Element {
   Integer priority;

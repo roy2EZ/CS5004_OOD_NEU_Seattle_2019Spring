@@ -5,6 +5,12 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * test the PQ
+ *
+ *  @author Rongyi Chen
+ *  @version 1.0
+ */
 public class PriorityQueueTest {
   PriorityQueue testPQ;
   Element e1;
@@ -82,7 +88,7 @@ public class PriorityQueueTest {
 
 
   @Test
-  public void pop() throws EmptyPQException {
+  public void pop() throws EmptyQueueException {
     assertEquals(0, testPQ.size());
     // insert elements into the PQ, with random order
     testPQ.insert(e2);
@@ -114,10 +120,17 @@ public class PriorityQueueTest {
   }
 
   @Test
-  public void peek() throws EmptyPQException {
+  public void peek() throws EmptyQueueException {
     testPQ.insert(e4);
     assertEquals("very", testPQ.peek());
     testPQ.insert(e5);
     assertEquals("much", testPQ.peek());
+  }
+
+  @Test
+  public void testCreateEmpty() {
+    PriorityQueue newEmpty = testPQ.createEmpty(6);
+    assertEquals(0, newEmpty.size());
+    assertEquals(6, newEmpty.getMaxN());
   }
 }
