@@ -9,7 +9,7 @@ import java.util.Objects;
  * @author Rongyi Chen
  * @version 1.0
  */
-public class PriorityQueue {
+public class PriorityQueue implements IPriorityQueue {
 
   private Element[] array; // binary tree base on heap
   private int index = 0; // elements restore in array[1] to array[]index, array[0] is not used
@@ -191,19 +191,18 @@ public class PriorityQueue {
     }
   }
 
-
   @Override
-  public boolean equals(Object o) {
-    if (this == o) {
+  public boolean equals(Object obj) {
+    if (this == obj) {
       return true;
     }
-    if (!(o instanceof PriorityQueue)) {
+    if (!(obj instanceof PriorityQueue)) {
       return false;
     }
-    PriorityQueue that = (PriorityQueue) o;
-    return index == that.index &&
-        maxN == that.maxN &&
-        Arrays.equals(array, that.array);
+    PriorityQueue that = (PriorityQueue) obj;
+    return index == that.index
+        && maxN == that.maxN
+        && Arrays.equals(array, that.array);
   }
 
   @Override
