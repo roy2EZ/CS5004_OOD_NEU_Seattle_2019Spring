@@ -116,10 +116,6 @@ public class PriorityQueueTest {
   }
 
   @Test
-  public void getArray() {
-  }
-
-  @Test
   public void peek() throws EmptyQueueException {
     testPQ.insert(e4);
     assertEquals("very", testPQ.peek());
@@ -128,9 +124,62 @@ public class PriorityQueueTest {
   }
 
   @Test
-  public void testCreateEmpty() {
+  public void createEmpty() {
     PriorityQueue newEmpty = testPQ.createEmpty(6);
     assertEquals(0, newEmpty.size());
     assertEquals(6, newEmpty.getMaxN());
   }
+
+  @Test
+  public void getArray() {
+    testPQ.insert(e1);
+    testPQ.insert(e2);
+    testPQ.insert(e3);
+    // e3 has highest priority as parent
+    assertEquals(e3,testPQ.getArray()[1]);
+    // e1 has lowest priority as left child
+    assertEquals(e1,testPQ.getArray()[2]);
+    // e2 as right child has higher priority than e1
+    assertEquals(e2,testPQ.getArray()[3]);
+
+
+  }
+
+  @Test
+  public void equals() {
+    PriorityQueue testPQ2 = new PriorityQueue(5);
+
+    assertTrue(testPQ.equals(testPQ2)); // two empty PQ should equal
+    testPQ.insert(e1);
+    assertFalse(testPQ.equals(testPQ2));
+    testPQ2.insert(e1);
+    assertTrue(testPQ.equals(testPQ2)); // two PQ with same element should equal
+
+    testPQ.insert(e2);
+    testPQ.insert(e3);
+
+    testPQ2.insert(e2);
+    testPQ2.insert(e3);
+    assertTrue(testPQ.equals(testPQ2)); // two PQ with same elements should equal
+
+    testPQ2.insert(e3);
+    assertEquals(3, testPQ.size());
+    // testPQ2 has one more duplicated element e3
+    assertEquals(4, testPQ2.size());
+    // even size of two PQ are different
+    // they still equal for testPQ2 has one more duplicated element e3
+    assertFalse(testPQ.equals(testPQ2));
+
+    // two PQ with element of same priority but different value should not equal
+    PriorityQueue testPQ3 = new PriorityQueue(2);
+    PriorityQueue testPQ4 = new PriorityQueue(2);
+    testPQ3.add(2,"Java");
+    testPQ3.add(2,"Python");
+    assertFalse(testPQ3.equals(testPQ4));
+
+
+
+  }
+
+
 }

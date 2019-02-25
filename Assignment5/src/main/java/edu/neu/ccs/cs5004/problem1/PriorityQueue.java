@@ -1,5 +1,8 @@
 package edu.neu.ccs.cs5004.problem1;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 /**
  * Represents a Heap-based priority queue
  *
@@ -126,6 +129,8 @@ public class PriorityQueue {
     return this.getArray()[1].value;
   }
 
+
+
   // getters
 
   public int getMaxN() {
@@ -187,4 +192,24 @@ public class PriorityQueue {
   }
 
 
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (!(o instanceof PriorityQueue)) {
+      return false;
+    }
+    PriorityQueue that = (PriorityQueue) o;
+    return index == that.index &&
+        maxN == that.maxN &&
+        Arrays.equals(array, that.array);
+  }
+
+  @Override
+  public int hashCode() {
+    int result = Objects.hash(index, maxN);
+    result = 31 * result + Arrays.hashCode(array);
+    return result;
+  }
 }
