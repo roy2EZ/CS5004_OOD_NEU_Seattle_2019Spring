@@ -33,10 +33,6 @@ public abstract class AbstractBagOfWords<String> implements IBagOfWords<String> 
 
   }
 
-  public void clear() {
-
-  }
-
   public Boolean remove(String element) {
     if(indexOf(element) >= 0) {
       remove(indexOf(element));
@@ -49,27 +45,8 @@ public abstract class AbstractBagOfWords<String> implements IBagOfWords<String> 
     return null;
   }
 
-  public BagOfWords set(int index, String element) {
-    return null;
-  }
-
-  public String elementAt(int index) {
-    return null;
-  }
-
   public int indexOf(String element) {
     return 0;
   }
 
-  public int lastIndexOf(String element) {
-    return 0;
-  }
-
-
-
-
-
-  public abstract Boolean hasDuplicates();
-
-  public abstract BagOfWords removeDuplicates();
 }

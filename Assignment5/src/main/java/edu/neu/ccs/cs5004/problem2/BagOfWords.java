@@ -9,12 +9,8 @@ public class BagOfWords<String> extends AbstractBagOfWords<String> {
   public BagOfWords() {
   }
 
-  public BagOfWords(String[] objects) {
-    super(objects);
-  }
-
   public String getFirst() {
-    if(size == 0) {
+    if (size == 0) {
       return null;
     } else {
       return head.element;
@@ -56,7 +52,7 @@ public class BagOfWords<String> extends AbstractBagOfWords<String> {
     else if (index == 0) return head.element;
     else if (index == size - 1) return tail.element;
     else{
-      Node<String> current = head;
+      Node<String> current = this.head;
       for(int i = 1; i < index; i++) {
         current = current.next;
       }
@@ -75,7 +71,7 @@ public class BagOfWords<String> extends AbstractBagOfWords<String> {
     if(index==0) addFirst(string);
     else if(index>=size) addLast(string);
     else{
-      Node<String> current=head;
+      Node<String> current = head;
       for(int i=1;i<index;i++)
         current=current.next;
       Node<String> temp=current.next;
@@ -103,9 +99,9 @@ public class BagOfWords<String> extends AbstractBagOfWords<String> {
   }
 
   public String removeLast(){
-    if(size==0)return null;
-    else if(size==1){
-      Node<String> temp=head;
+    if (size == 0)return null;
+    else if(size == 1){
+      Node<String> temp = head;
       head=tail=null;
       size=0;
       return temp.element;
@@ -128,33 +124,16 @@ public class BagOfWords<String> extends AbstractBagOfWords<String> {
     else if(index==0) return removeFirst();
     else if(index==size-1) return removeLast();
     else{
-      Node<String> previous = head;
-      for (int i = 1;i < index;i++){
+      Node<String> previous;
+      previous = this.head;
+      for (int i = 1;i < index;i++) {
         previous = previous.next;
       }
       Node<String> current = previous.next;
-      previous.next=current.next;
+      previous.next = current.next;
       size--;
       return current.element;
     }
-  }
-
-
-
-  public java.lang.String toString(){
-    StringBuilder result=new StringBuilder("[");
-    Node<String> current=head;
-    for(int i=0;i<size;i++){
-      result.append(current.element);
-      current=current.next;
-      if(current!=null){
-        result.append(",");
-      }
-      else{
-        result.append("]");
-      }
-    }
-    return result.toString();
   }
 
 
@@ -176,62 +155,6 @@ public class BagOfWords<String> extends AbstractBagOfWords<String> {
     return false;
   }
 
-
-  /**
-   * check if the list has at least one duplicate element.
-   *
-   * @return true if the list has at least one duplicate element and false otherwise.
-   */
-  @Override
-  public Boolean hasDuplicates() {
-    BagOfWords tempList = new BagOfWords();
-    Node<String> current = this.head;
-    for (int i = 0; i < this.size(); i++) {
-      tempList.add(current.element);
-      current = current.next;
-    }
-    Node<String> temp = tempList.head;
-    for (int i = 0; i < this.size(); i++) {
-      tempList.removeFirst();
-      if (tempList.contains(temp.element)) {
-        return true;
-      } else {
-        temp = temp.next;
-      }
-    }
-    return false;
-  }
-
-  /**
-   * returns the list with all duplicates removed.
-   *
-   * @return returns the list with all duplicates removed.
-   */
-  @Override
-  public BagOfWords removeDuplicates() {
-    if (this.hasDuplicates()) {
-      BagOfWords tempList = new BagOfWords();
-      Node<String> current = this.head;
-      while (!this.isEmpty()) {
-        if (!tempList.contains(current.element)) {
-          tempList.add(current.element);
-        }
-        this.remove(current.element);
-        if (!this.isEmpty()) {
-          current = current.next;
-        }
-      }
-      // copy the no duplicates tempList back to this original list
-      Node<String> temp = tempList.head;
-      for (int i = 0; i < tempList.size(); i++) {
-        this.add(temp.element);
-        temp = temp.next;
-      }
-
-    }
-    return this;
-  }
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -241,12 +164,13 @@ public class BagOfWords<String> extends AbstractBagOfWords<String> {
       return false;
     }
     BagOfWords<?> that = (BagOfWords<?>) o;
-    return head.equals(that.head) &&
-        tail.equals(that.tail);
+    return head.equals(that.head)
+        && tail.equals(that.tail);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(head, tail);
   }
+
 }

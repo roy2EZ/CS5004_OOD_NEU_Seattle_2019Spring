@@ -17,7 +17,8 @@ public class BagOfWordsTest {
 
   @Test
   public void emptyBagOfWords() {
-
+    BagOfWords empty = tedBag.emptyBagOfWords();
+    assertTrue(empty.isEmpty());
   }
 
   @Test
@@ -27,13 +28,33 @@ public class BagOfWordsTest {
 
   @Test
   public void size() {
+    assertEquals(0, tedBag.size());
+    tedBag.add("I");
+    assertEquals(1, tedBag.size());
+    tedBag.add("love");
+    assertEquals(2, tedBag.size());
+    tedBag.add("Java");
+    assertEquals(3, tedBag.size());
+
   }
 
   @Test
   public void add() {
+    tedBag.add("I");
+    assertEquals("I", tedBag.getLast());
+    tedBag.add("love");
+    assertEquals("love", tedBag.getFirst());
+    tedBag.add("Java");
+    assertEquals("Java", tedBag.get(0));
   }
 
   @Test
   public void contains() {
+    tedBag.add("I");
+    tedBag.add("love");
+    tedBag.add("Java");
+
+    assertTrue(tedBag.contains("I"));
+    assertFalse(tedBag.contains("Python"));
   }
 }
