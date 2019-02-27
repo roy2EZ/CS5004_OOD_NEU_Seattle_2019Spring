@@ -10,7 +10,7 @@ public class Node {
   // the next node of this node
   Node next;
 
-  public Node(String str){
+  public Node(String str) {
     element = str;
   }
 

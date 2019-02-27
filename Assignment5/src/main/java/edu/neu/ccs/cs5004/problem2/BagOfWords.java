@@ -118,14 +118,14 @@ public class BagOfWords extends AbstractBagOfWords {
    */
   @Override
   public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("BagOfWords" + '[');
+    StringBuilder stringBuilder = new StringBuilder();
+    stringBuilder.append("BagOfWords" + '[');
     for (int i = 0; i < (this.size() - 1); i++) {
-      sb.append(this.get(i) + ", ");
+      stringBuilder.append(this.get(i) + ", ");
     }
-    sb.append(this.getLast());
-    sb.append(']');
-    return sb.toString();
+    stringBuilder.append(this.getLast());
+    stringBuilder.append(']');
+    return stringBuilder.toString();
   }
 
   /**
@@ -304,11 +304,11 @@ public class BagOfWords extends AbstractBagOfWords {
       return temp.element;
     } else {
       Node current = head;
-      for (int i = 0; i < size - 2; i++){
+      for (int i = 0; i < size - 2; i++) {
         current = current.next;
       }
-      Node temp = tail;
       tail = current;
+      Node temp = tail;
       tail.next = null;
       size--;
       return temp.element;
@@ -404,7 +404,7 @@ public class BagOfWords extends AbstractBagOfWords {
         if (current.element.equals(str)) {
           return i;
         } else {
-          current=current.next;
+          current = current.next;
         }
       }
     }
@@ -417,7 +417,7 @@ public class BagOfWords extends AbstractBagOfWords {
    * in this way the new Set will have unique elements for later compare.
    * @return the new BagOfWords with new way to show the old BagOfWords without duplicates.
    */
-    public BagOfWords bagDuplicateRewrite() {
+  public BagOfWords bagDuplicateRewrite() {
     if (!this.hasDuplicates()) {
       return this;
     } else {
@@ -425,7 +425,6 @@ public class BagOfWords extends AbstractBagOfWords {
       BagOfWords uniqueBag = this.removeDuplicates();
       // also create an empty to store rewrite results
       BagOfWords rewriteBag = new BagOfWords();
-
       for (int i = 0; i < uniqueBag.size(); i++) {
         Integer num = this.numOfDuplicated(uniqueBag.get(i));
         rewriteBag.add(num.toString() + uniqueBag.get(i));
@@ -433,6 +432,5 @@ public class BagOfWords extends AbstractBagOfWords {
       return rewriteBag;
     }
   }
-
 
 }
