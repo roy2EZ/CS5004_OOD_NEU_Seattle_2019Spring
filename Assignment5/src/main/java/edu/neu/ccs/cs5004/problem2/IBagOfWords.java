@@ -2,11 +2,11 @@ package edu.neu.ccs.cs5004.problem2;
 
 
 /**
- * Represents a List of Integers
+ * Represents a List of Integers.
  * @author Rongyi Chen
  * @version 1.0
  */
-public interface IBagOfWords<String> {
+public interface IBagOfWords {
 
   /**
    * Creates an empty BagOfWords.
@@ -22,12 +22,13 @@ public interface IBagOfWords<String> {
   Boolean isEmpty();
 
   /**
-   * @return number of how many elements in the list
+   * return number of how many elements in the bag.
+   * @return number of how many elements in the bag
    */
   int size();
 
   /**
-   * Given a new string and add it to this bag of words
+   * Given a new string and add it to this bag of words.
    * @param string new string to add to the bag of words
    * @return updated BagOfWords with string prepended
    */

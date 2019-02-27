@@ -1,52 +1,54 @@
 package edu.neu.ccs.cs5004.problem2;
 
-public abstract class AbstractBagOfWords<String> implements IBagOfWords<String> {
+public abstract class AbstractBagOfWords implements IBagOfWords {
   protected int size = 0;
 
+
+  /**
+   * Constructs an empty bag
+   */
   public AbstractBagOfWords() {
-
   }
 
-  protected AbstractBagOfWords(String[] objects){
-    for(int i=1;i<objects.length;i++) {
-      add(objects[i]);
+
+  /**
+   * Constructs a bag with a string array
+   * that add each string elements in the array into the bag.
+   * @param strings the string array with the strings which need to be added into the bag.
+   */
+  protected AbstractBagOfWords(String[] strings){
+    for(int i = 0 ; i<strings.length; i++) {
+      add(strings[i]);
     }
   }
 
-  @Override
-  public BagOfWords emptyBagOfWords() {
-    return new BagOfWords();
-  }
 
-  @Override
-  public Boolean isEmpty() {
-    return size == 0;
-  }
+  // other helper functions which need implement in BagOfWords class
 
-  @Override
-  public int size() {
-    return size;
-  }
-
-
-  public void add(int index, String element) {
-
-  }
-
-  public Boolean remove(String element) {
-    if(indexOf(element) >= 0) {
-      remove(indexOf(element));
-      return true;
-    }
-    else return false;
-  }
-
-  public String remove(int index) {
+  /**
+   * get the string at index position
+   * @param index the position in the bag
+   * @return the string element at that index
+   */
+  public String get(int index) {
     return null;
   }
 
-  public int indexOf(String element) {
-    return 0;
+  /**
+   * add the string element at the index location.
+   * @param index the index where the element need to be added
+   * @param element the string element which need to be added
+   */
+  public void add(int index, String element) {}
+
+  public String remove(int index){
+    return null;
   }
+
+  public Boolean hasDuplicates() {
+    return null;
+  }
+
+
 
 }
