@@ -58,7 +58,7 @@ public class BagOfWords extends AbstractBagOfWords {
    */
   @Override
   public BagOfWords add(String string) {
-    this.add(0,string);
+    this.addLast(string);
     return this;
   }
 
@@ -340,4 +340,16 @@ public class BagOfWords extends AbstractBagOfWords {
     }
 
   }*/
+
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("BagOfWords"+'[');
+    for (int i = 0; i<this.size()-1; i++) {
+      sb.append(this.get(i)+", ");
+    }
+    sb.append(this.getLast());
+    sb.append(']');
+    return sb.toString();
+  }
 }

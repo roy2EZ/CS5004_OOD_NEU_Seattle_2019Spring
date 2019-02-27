@@ -108,14 +108,15 @@ public class BagOfWordsTest {
   @Test
   public void firstIndexOf() {
     BagOfWords duplicateBag2 = new BagOfWords(new String[]{"Python","C","Java","Java","C","C"});
-    assertEquals(5, duplicateBag2.firstIndexOf("Python"));
-    assertEquals(0, duplicateBag2.firstIndexOf("C"));
+    assertEquals(0, duplicateBag2.firstIndexOf("Python"));
+    assertEquals(1, duplicateBag2.firstIndexOf("C"));
     assertEquals(2, duplicateBag2.firstIndexOf("Java"));
   }
 
   @Test
   public void removeDuplicates() {
-    BagOfWords oldDuplicatedBag = new BagOfWords(new String[]{"Python","C","Java","Java","C","C"});
+    BagOfWords oldDuplicatedBag = new BagOfWords(
+        new String[]{"Python", "C", "Java", "Java", "C", "C"});
     BagOfWords newBag = oldDuplicatedBag.removeDuplicates();
 
     // the new bag has only 3 elements
@@ -125,6 +126,28 @@ public class BagOfWordsTest {
     assertTrue(newBag.contains("Java"));
     // the new bag is without duplicated elements
     assertFalse(newBag.hasDuplicates());
+
+  }
+
+  @Test
+  public void testToString() {
+    BagOfWords toStringBag = new BagOfWords(
+    new String[]{"Process", "finished", "with", "exit", "code", "0"});
+    assertEquals("BagOfWords[Process, finished, with, exit, code, 0]",toStringBag.toString());
+    // empty bag calling toString will return "BagOfWords[null]"
+    assertEquals("BagOfWords[null]",tedBag.toString());
+    // add elements into the empty bag and call toString() to see the change
+    tedBag.add("first");
+    assertEquals("BagOfWords[first]",tedBag.toString());
+    tedBag.addLast("second");
+    assertEquals("BagOfWords[first, second]",tedBag.toString());
+    tedBag.add(1,"1.5");
+    assertEquals("BagOfWords[first, 1.5, second]",tedBag.toString());
+    tedBag.remove(2);
+    assertEquals("BagOfWords[first, 1.5]",tedBag.toString());
+
+
+
 
   }
 }
