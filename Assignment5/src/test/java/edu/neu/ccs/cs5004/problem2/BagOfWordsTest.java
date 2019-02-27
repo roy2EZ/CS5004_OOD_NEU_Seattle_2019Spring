@@ -63,7 +63,7 @@ public class BagOfWordsTest {
     assertEquals("Java", tedBag.getFirst());
     tedBag.addLast("Do");
     assertEquals("Do", tedBag.getLast());
-    
+
   }
 
   /**
@@ -76,7 +76,55 @@ public class BagOfWordsTest {
     assertTrue(testBag.contains("love"));
     assertTrue(testBag.contains("I"));
     assertFalse(testBag.contains("you"));
+  }
+
+
+  @Test
+  public void hasDuplicates() {
+    BagOfWords duplicate1 = new BagOfWords(new String[]{"I","love","Java","too"});
+    BagOfWords duplicate2 = new BagOfWords(new String[]{"I","love","Java","day","by","day"});
+
+    // call hasDuplicates() on empty bag return false
+    assertFalse(tedBag.hasDuplicates());
+    // call hasDuplicates() on bag with all unique string elements return false
+    assertFalse(duplicate1.hasDuplicates());
+    // call hasDuplicates() on bag with duplicated elements return true
+    assertTrue(duplicate2.hasDuplicates());
 
   }
 
+  @Test
+  public void numOfDuplicated() {
+    BagOfWords duplicateBag = new BagOfWords(new String[]{"Python","C","Java","Java","C","C"});
+    assertEquals(1,duplicateBag.numOfDuplicated("Python"));
+    assertEquals(2,duplicateBag.numOfDuplicated("Java"));
+    assertEquals(3,duplicateBag.numOfDuplicated("C"));
+    // for string which is not in the Bag, return 0
+    assertEquals(0,duplicateBag.numOfDuplicated("C++"));
+
+  }
+
+
+  @Test
+  public void firstIndexOf() {
+    BagOfWords duplicateBag2 = new BagOfWords(new String[]{"Python","C","Java","Java","C","C"});
+    assertEquals(5, duplicateBag2.firstIndexOf("Python"));
+    assertEquals(0, duplicateBag2.firstIndexOf("C"));
+    assertEquals(2, duplicateBag2.firstIndexOf("Java"));
+  }
+
+  @Test
+  public void removeDuplicates() {
+    BagOfWords oldDuplicatedBag = new BagOfWords(new String[]{"Python","C","Java","Java","C","C"});
+    BagOfWords newBag = oldDuplicatedBag.removeDuplicates();
+
+    // the new bag has only 3 elements
+    assertEquals(3, newBag.size());
+    assertTrue(newBag.contains("Python"));
+    assertTrue(newBag.contains("C"));
+    assertTrue(newBag.contains("Java"));
+    // the new bag is without duplicated elements
+    assertFalse(newBag.hasDuplicates());
+
+  }
 }

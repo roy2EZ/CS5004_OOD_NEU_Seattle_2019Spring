@@ -26,7 +26,7 @@ public abstract class AbstractBagOfWords implements IBagOfWords {
   // other helper functions which need implement in BagOfWords class
 
   /**
-   * get the string at index position
+   * get the string at index position.
    * @param index the position in the bag
    * @return the string element at that index
    */
@@ -37,18 +37,25 @@ public abstract class AbstractBagOfWords implements IBagOfWords {
   /**
    * add the string element at the index location.
    * @param index the index where the element need to be added
-   * @param element the string element which need to be added
+   * @param string the string element which need to be added
    */
-  public void add(int index, String element) {}
+  public void add(int index, String string) {}
 
+  /**
+   * remove string at index position.
+   * @param index the position which string need to be removed
+   * @return the removed string
+   */
   public String remove(int index){
     return null;
   }
 
+  /**
+   * check if the bag has at least one duplicate element.
+   * @return true if the list has at least one duplicate element and false otherwise.
+   */
   public Boolean hasDuplicates() {
     return null;
   }
-
-
 
 }
