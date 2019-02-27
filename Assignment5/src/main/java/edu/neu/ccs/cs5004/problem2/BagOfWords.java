@@ -1,5 +1,7 @@
 package edu.neu.ccs.cs5004.problem2;
 
+import java.util.Objects;
+
 public class BagOfWords extends AbstractBagOfWords {
   private Node head, tail;
 
@@ -241,6 +243,9 @@ public class BagOfWords extends AbstractBagOfWords {
     }
   }
 
+  // Below is all the methods about duplicates operation,
+  // to make sure the BagOfWords can be with duplicated elements,
+  // and prepare for overriding the equal() method.
 
   /**
    * check if the list has at least one duplicate element.
@@ -249,12 +254,7 @@ public class BagOfWords extends AbstractBagOfWords {
   @Override
   public Boolean hasDuplicates() {
 
-    BagOfWords tempList = new BagOfWords();
-    Node current = this.head;
-    for (int i = 0; i < this.size(); i++) {
-      tempList.add(current.element);
-      current = current.next;
-    }
+    BagOfWords tempList = this.bagClone();
     Node temp = tempList.head;
     for (int i = 0; i < this.size(); i++) {
       tempList.removeFirst();
@@ -281,30 +281,29 @@ public class BagOfWords extends AbstractBagOfWords {
     }
   }
 
-
+  public BagOfWords bagClone() {
+    // copy the origin bag
+    BagOfWords copyBag = new BagOfWords();
+    Node curr = this.head;
+    for (int i = 0; i < this.size(); i++) {
+      copyBag.add(curr.element);
+      curr = curr.next;
+    }
+    return copyBag;
+  }
 
   public BagOfWords removeDuplicates() {
-    if (this.hasDuplicates()) {
-      BagOfWords tempList = new BagOfWords();
-      Node current = this.head;
-      while (!this.isEmpty()) {
-        if (!tempList.contains(current.element)) {
-          tempList.add(current.element);
-        }
-        this.remove(firstIndexOf(current.element));
-        if (!this.isEmpty()) {
-          current = current.next;
-        }
+    // copy the origin bag
+    BagOfWords copyBag = this.bagClone();
+    BagOfWords resultBag = new BagOfWords();
+    while (!copyBag.isEmpty()){
+      if (copyBag.numOfDuplicated(copyBag.getFirst()) > 1) {
+        copyBag.removeFirst();
+      } else {
+        resultBag.add(copyBag.removeFirst());
       }
-      // copy the no duplicates tempList back to this original list
-      Node temp = tempList.head;
-      for (int i = 0; i < tempList.size(); i++) {
-        this.add(temp.element);
-        temp = temp.next;
-      }
-
     }
-    return this;
+    return resultBag;
   }
 
   public int firstIndexOf(String str){
@@ -327,19 +326,23 @@ public class BagOfWords extends AbstractBagOfWords {
    * in this way the new Set will have unique elements for later compare.
    * @return the new BagOfWords with new way to show the old BagOfWords without duplicates.
    */
-  /*
-    public BagOfWords bagDuplicateRewrite(BagOfWords oldBag) {
-    if (!oldBag.hasDuplicates()) {
-      return oldBag;
+
+    public BagOfWords bagDuplicateRewrite() {
+    if (!this.hasDuplicates()) {
+      return this;
     } else {
-      BagOfWords newBag = new BagOfWords();
-      for (int i = 0; i < this.size(); i++) {
+      // create a new bag with unique elements in old bag
+      BagOfWords uniqueBag = this.removeDuplicates();
+      // also create an empty to store rewrite results
+      BagOfWords rewriteBag = new BagOfWords();
 
+      for (int i = 0; i < uniqueBag.size(); i++) {
+        Integer num = this.numOfDuplicated(uniqueBag.get(i));
+        rewriteBag.add(num.toString()+uniqueBag.get(i));
       }
-
+      return rewriteBag;
     }
-
-  }*/
+  }
 
   @Override
   public String toString() {
@@ -352,4 +355,30 @@ public class BagOfWords extends AbstractBagOfWords {
     sb.append(']');
     return sb.toString();
   }
+/*
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (!(o instanceof BagOfWords)) {
+      return false;
+    }
+    BagOfWords that = (BagOfWords) o;
+
+    if (this.size() != that.size()) {
+      return false;
+    } else {
+      for for (int i = 0; i < uniqueBag.size(); i++) {
+
+    }
+
+
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(head, tail);
+  }
+  */
 }

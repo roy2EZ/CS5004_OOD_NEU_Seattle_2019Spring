@@ -126,7 +126,8 @@ public class BagOfWordsTest {
     assertTrue(newBag.contains("Java"));
     // the new bag is without duplicated elements
     assertFalse(newBag.hasDuplicates());
-
+    // original bag was not changed (immutable)
+    assertEquals("BagOfWords[Python, C, Java, Java, C, C]", oldDuplicatedBag.toString());
   }
 
   @Test
@@ -149,5 +150,26 @@ public class BagOfWordsTest {
 
 
 
+  }
+
+  @Test
+  public void bagDuplicateRewrite() {
+
+    BagOfWords oldDupBag1 = new BagOfWords(
+        new String[]{"C", "Java", "C", "Java", "C", "Python"});
+    BagOfWords newRewriteBag = oldDupBag1.bagDuplicateRewrite();
+    assertTrue(newRewriteBag.contains("1Python"));
+    assertTrue(newRewriteBag.contains("2Java"));
+    assertTrue(newRewriteBag.contains("3C"));
+    assertEquals(3,newRewriteBag.size());
+
+  }
+
+  @Test
+  public void bagClone() {
+    BagOfWords originBag = new BagOfWords(
+        new String[]{"Python", "C", "Java", "Java", "C", "C"});
+    BagOfWords copyBag = originBag.bagClone();
+    assertEquals("BagOfWords[Python, C, Java, Java, C, C]", copyBag.toString());
   }
 }
