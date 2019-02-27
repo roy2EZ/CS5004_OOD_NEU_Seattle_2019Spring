@@ -10,21 +10,20 @@ package edu.neu.ccs.cs5004.problem2;
 public abstract class AbstractBagOfWords implements IBagOfWords {
   protected int size = 0;
 
-
   /**
-   * Constructs an empty bag
+   * Constructs an empty bag.
    */
   public AbstractBagOfWords() {
+
   }
 
-
   /**
-   * Constructs a bag with a string array
+   * Constructs a bag with a string array.
    * that add each string elements in the array into the bag.
    * @param strings the string array with the strings which need to be added into the bag.
    */
-  protected AbstractBagOfWords(String[] strings){
-    for(int i = 0 ; i<strings.length; i++) {
+  protected AbstractBagOfWords(String[] strings) {
+    for (int i = 0 ; i < strings.length; i++) {
       add(strings[i]);
     }
   }
@@ -53,15 +52,7 @@ public abstract class AbstractBagOfWords implements IBagOfWords {
    * @param index the position which string need to be removed
    * @return the removed string
    */
-  public String remove(int index){
-    return null;
-  }
-
-  /**
-   * check if the bag has at least one duplicate element.
-   * @return true if the list has at least one duplicate element and false otherwise.
-   */
-  public Boolean hasDuplicates() {
+  public String remove(int index) {
     return null;
   }
 

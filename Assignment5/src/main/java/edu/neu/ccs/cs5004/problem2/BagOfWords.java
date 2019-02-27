@@ -9,17 +9,18 @@ import java.util.Objects;
  * @version 1.0
  */
 public class BagOfWords extends AbstractBagOfWords {
-  private Node head, tail;
+  private Node head;
+  private Node tail;
 
   /**
-   * Constructs an empty bag
+   * Constructs an empty bag.
    */
   public BagOfWords() {
+
   }
 
   /**
-   * Constructs a bag with a string array
-   * that add each string elements in the array into the bag.
+   * Constructs a bag with a string array that add each string elements in the array into the bag.
    */
   public BagOfWords(String[] strings) {
     super(strings);
@@ -71,6 +72,28 @@ public class BagOfWords extends AbstractBagOfWords {
   }
 
   /**
+   * add the string element at the index location.
+   * @param index the index where the element need to be added
+   * @param string the string element which need to be added
+   */
+  public void add(int index,String string) {
+    if (index == 0) {
+      addFirst(string);
+    } else if (index >= size) {
+      addLast(string);
+    } else {
+      Node current = head;
+      for (int i = 1; i < index; i++) {
+        current = current.next;
+      }
+      Node temp = current.next;
+      current.next = new Node(string);
+      (current.next).next = temp;
+      size++;
+    }
+  }
+
+  /**
    * consumes a String, and checks if the String is in the list or not.
    * @param element the string need to be check
    * @return true if string in the list and false otherwise
@@ -78,8 +101,8 @@ public class BagOfWords extends AbstractBagOfWords {
   @Override
   public Boolean contains(String element) {
     Node current = head;
-    for(int i = 0; i < size; i++){
-      if(current.element.equals(element)){
+    for (int i = 0; i < size; i++) {
+      if (current.element.equals(element)) {
         return true;
       } else {
         current = current.next;
@@ -88,20 +111,80 @@ public class BagOfWords extends AbstractBagOfWords {
     return false;
   }
 
-   //other helper functions I designed here or implement from AbstractBagOfWords.
 
+  /**
+   * Override the toString() method, to output the BagOfWords.
+   * @return a string with all elements in the bag
+   */
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("BagOfWords" + '[');
+    for (int i = 0; i < (this.size() - 1); i++) {
+      sb.append(this.get(i) + ", ");
+    }
+    sb.append(this.getLast());
+    sb.append(']');
+    return sb.toString();
+  }
+
+  /**
+   * override equals() method as homework requirements.
+   * Remember that the order of elements in a BagOfWords does not matter.
+   * @param obj another BagOfWords object
+   * @return true if the two BagsOfWords have the same exact elements;
+   *         exactly the same Strings and exactly the same number of times in the BagOfWords
+   *         (if there are duplicates); false otherwise.
+   */
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj) {
+      return true;
+    }
+    if (!(obj instanceof BagOfWords)) {
+      return false;
+    }
+    BagOfWords that = (BagOfWords) obj;
+
+    if (this.size() != that.size()) {
+      return false;
+    } else {
+      BagOfWords thisRewrite = this.bagDuplicateRewrite();
+      BagOfWords thatRewrite = that.bagDuplicateRewrite();
+      if (thisRewrite.size() != thatRewrite.size()) {
+        return false;
+      } else {
+        for (int i = 0; i < thisRewrite.size(); i++) {
+          if (!thatRewrite.contains(thisRewrite.get(i))) {
+            return false;
+          }
+        }
+        return true;
+      }
+    }
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(head, tail);
+  }
+
+  // other helper functions I designed here or implement from AbstractBagOfWords.
   /**
    * get the string at index position.
    * @param index the position in the bag
    * @return the string element at that index
    */
   public String get(int index) {
-    if (index < 0 || index >= size) return null;
-    else if (index == 0) return head.element;
-    else if (index == size - 1) return tail.element;
-    else{
+    if (index < 0 || index >= size) {
+      return null;
+    } else if (index == 0) {
+      return head.element;
+    } else if (index == size - 1) {
+      return tail.element;
+    } else {
       Node current = this.head;
-      for(int i = 1; i < index; i++) {
+      for (int i = 1; i < index; i++) {
         current = current.next;
       }
       Node temp = current.next;
@@ -110,34 +193,18 @@ public class BagOfWords extends AbstractBagOfWords {
   }
 
   /**
-   * add the string element at the index location.
-   * @param index the index where the element need to be added
-   * @param string the string element which need to be added
-   */
-  public void add(int index,String string){
-    if(index==0) addFirst(string);
-    else if(index>=size) addLast(string);
-    else{
-      Node current = head;
-      for(int i=1;i<index;i++)
-        current = current.next;
-      Node temp = current.next;
-      current.next=new Node(string);
-      (current.next).next=temp;
-      size++;
-    }
-  }
-
-  /**
    * remove string at index position.
    * @param index the position which string need to be removed
    * @return the removed string
    */
-  public String remove(int index){
-    if(index<0||index>=size) return null;
-    else if(index==0) return removeFirst();
-    else if(index==size-1) return removeLast();
-    else{
+  public String remove(int index) {
+    if (index < 0 || index >= size) {
+      return null;
+    } else if (index == 0) {
+      return removeFirst();
+    } else if (index == size - 1) {
+      return removeLast();
+    } else {
       Node previous;
       previous = this.head;
       for (int i = 1;i < index;i++) {
@@ -178,10 +245,10 @@ public class BagOfWords extends AbstractBagOfWords {
    * add string element at first index (index 0).
    * @param string the string need to be added
    */
-  public void addFirst(String string){
+  public void addFirst(String string) {
     Node newNode = new Node(string);
-    newNode.next=head;
-    head=newNode;
+    newNode.next = head;
+    head = newNode;
     size++;
     if (tail == null) {
       tail = head;
@@ -192,12 +259,11 @@ public class BagOfWords extends AbstractBagOfWords {
    * add string element at last index.
    * @param string the string need to be added
    */
-  public void addLast(String string){
+  public void addLast(String string) {
     Node newNode = new Node(string);
     if (tail == null) {
       head = tail = newNode;
-    }
-    else{
+    } else {
       tail.next = newNode;
       tail = tail.next;
     }
@@ -208,15 +274,15 @@ public class BagOfWords extends AbstractBagOfWords {
    * remove first string.
    * @return the removed string
    */
-  public String removeFirst(){
-    if (size == 0) return null;
-    else if (size == 1) {
+  public String removeFirst() {
+    if (size == 0) {
+      return null;
+    } else if (size == 1) {
       Node temp = head;
       head = tail = null;
       size = 0;
       return temp.element;
-    }
-    else{
+    } else {
       Node temp = head;
       head = head.next;
       size--;
@@ -228,22 +294,22 @@ public class BagOfWords extends AbstractBagOfWords {
    * remove the last string.
    * @return the removed string
    */
-  public String removeLast(){
-    if (size == 0)return null;
-    else if(size == 1){
+  public String removeLast() {
+    if (size == 0) {
+      return null;
+    } else if (size == 1) {
       Node temp = head;
-      head=tail=null;
-      size=0;
+      head = tail = null;
+      size = 0;
       return temp.element;
-    }
-    else{
-      Node current=head;
-      for(int i=0;i<size-2;i++){
-        current=current.next;
+    } else {
+      Node current = head;
+      for (int i = 0; i < size - 2; i++){
+        current = current.next;
       }
-      Node temp=tail;
-      tail=current;
-      tail.next=null;
+      Node temp = tail;
+      tail = current;
+      tail.next = null;
       size--;
       return temp.element;
     }
@@ -257,7 +323,6 @@ public class BagOfWords extends AbstractBagOfWords {
    * check if the list has at least one duplicate element.
    * @return true if the list has at least one duplicate element and false otherwise.
    */
-  @Override
   public Boolean hasDuplicates() {
 
     BagOfWords tempList = this.bagClone();
@@ -308,14 +373,14 @@ public class BagOfWords extends AbstractBagOfWords {
   }
 
   /**
-   * remove the duplicated elements in the bag to return a bag without duplicated elements
+   * remove the duplicated elements in the bag to return a bag without duplicated elements.
    * @return a bag without duplicated elements, and has all original bag's elements
    */
   public BagOfWords removeDuplicates() {
     // copy the origin bag
     BagOfWords copyBag = this.bagClone();
     BagOfWords resultBag = new BagOfWords();
-    while (!copyBag.isEmpty()){
+    while (!copyBag.isEmpty()) {
       if (copyBag.numOfDuplicated(copyBag.getFirst()) > 1) {
         copyBag.removeFirst();
       } else {
@@ -330,27 +395,28 @@ public class BagOfWords extends AbstractBagOfWords {
    * @param str the string which need to check
    * @return the string's index
    */
-  public int firstIndexOf(String str){
+  public int firstIndexOf(String str) {
     if (this.size() == 0) {
       return -1;
     } else {
       Node current = head;
-      for(int i=0;i<size;i++){
-        if(current.element.equals(str))
+      for (int i = 0; i < size; i++) {
+        if (current.element.equals(str)) {
           return i;
-        else current=current.next;
+        } else {
+          current=current.next;
+        }
       }
     }
     return -1;
   }
 
   /**
-   * To rewrite the Bag with duplicated words into a new bag of words with no duplicated way
+   * To rewrite the Bag with duplicated words into a new bag of words with no duplicated way.
    * For example, [I,love,you,and,you,love,me] will be rewrite as [I,2love,2you,and,me],
    * in this way the new Set will have unique elements for later compare.
    * @return the new BagOfWords with new way to show the old BagOfWords without duplicates.
    */
-
     public BagOfWords bagDuplicateRewrite() {
     if (!this.hasDuplicates()) {
       return this;
@@ -362,64 +428,11 @@ public class BagOfWords extends AbstractBagOfWords {
 
       for (int i = 0; i < uniqueBag.size(); i++) {
         Integer num = this.numOfDuplicated(uniqueBag.get(i));
-        rewriteBag.add(num.toString()+uniqueBag.get(i));
+        rewriteBag.add(num.toString() + uniqueBag.get(i));
       }
       return rewriteBag;
     }
   }
 
-  /**
-   * Override the toString() method, to output the BagOfWords.
-   * @return a string with all elements in the bag
-   */
-  @Override
-  public String toString() {
-    StringBuilder sb = new StringBuilder();
-    sb.append("BagOfWords"+'[');
-    for (int i = 0; i<this.size()-1; i++) {
-      sb.append(this.get(i)+", ");
-    }
-    sb.append(this.getLast());
-    sb.append(']');
-    return sb.toString();
-  }
-
-  /**
-   * override equals() method as homework requirements.
-   * Remember that the order of elements in a BagOfWords does not matter.
-   * @param o another BagOfWords object
-   * @return true if the two BagsOfWords have the same exact elements; exactly the same Strings and
-   * exactly the same number of times in the BagOfWords (if there are duplicates); false otherwise.
-   */
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (!(o instanceof BagOfWords)) {
-      return false;
-    }
-    BagOfWords that = (BagOfWords) o;
-
-    if (this.size() != that.size()) {
-      return false;
-    } else {
-      BagOfWords thisRewrite = this.bagDuplicateRewrite();
-      BagOfWords thatRewrite = that.bagDuplicateRewrite();
-      if (thisRewrite.size() != thatRewrite.size()) {
-        return false;
-      } else {
-        for (int i = 0; i < thisRewrite.size(); i++) {
-          if (!thatRewrite.contains(thisRewrite.get(i))){ return false; }
-        }
-        return true;
-      }
-    }
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(head, tail);
-  }
 
 }
