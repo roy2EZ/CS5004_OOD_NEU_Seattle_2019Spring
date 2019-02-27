@@ -2,6 +2,12 @@ package edu.neu.ccs.cs5004.problem2;
 
 import java.util.Objects;
 
+/**
+ * represents a bag of words ADT.
+ *
+ * @author Rongyi Chen
+ * @version 1.0
+ */
 public class BagOfWords extends AbstractBagOfWords {
   private Node head, tail;
 
@@ -267,6 +273,11 @@ public class BagOfWords extends AbstractBagOfWords {
     return false;
   }
 
+  /**
+   * get the number of how many times the string str duplicates in the Bag.
+   * @param str the string which need to check
+   * @return the number of how many times the string str duplicates in the Bag
+   */
   public int numOfDuplicated(String str) {
     if (!this.contains(str)) {
       return 0;
@@ -281,6 +292,10 @@ public class BagOfWords extends AbstractBagOfWords {
     }
   }
 
+  /**
+   * clone the bag.
+   * @return a copy of the bag
+   */
   public BagOfWords bagClone() {
     // copy the origin bag
     BagOfWords copyBag = new BagOfWords();
@@ -292,6 +307,10 @@ public class BagOfWords extends AbstractBagOfWords {
     return copyBag;
   }
 
+  /**
+   * remove the duplicated elements in the bag to return a bag without duplicated elements
+   * @return a bag without duplicated elements, and has all original bag's elements
+   */
   public BagOfWords removeDuplicates() {
     // copy the origin bag
     BagOfWords copyBag = this.bagClone();
@@ -306,6 +325,11 @@ public class BagOfWords extends AbstractBagOfWords {
     return resultBag;
   }
 
+  /**
+   * return the index where the string appears in the bag first time from front to end.
+   * @param str the string which need to check
+   * @return the string's index
+   */
   public int firstIndexOf(String str){
     if (this.size() == 0) {
       return -1;
@@ -344,6 +368,10 @@ public class BagOfWords extends AbstractBagOfWords {
     }
   }
 
+  /**
+   * Override the toString() method, to output the BagOfWords.
+   * @return a string with all elements in the bag
+   */
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -355,7 +383,14 @@ public class BagOfWords extends AbstractBagOfWords {
     sb.append(']');
     return sb.toString();
   }
-/*
+
+  /**
+   * override equals() method as homework requirements.
+   * Remember that the order of elements in a BagOfWords does not matter.
+   * @param o another BagOfWords object
+   * @return true if the two BagsOfWords have the same exact elements; exactly the same Strings and
+   * exactly the same number of times in the BagOfWords (if there are duplicates); false otherwise.
+   */
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -369,16 +404,22 @@ public class BagOfWords extends AbstractBagOfWords {
     if (this.size() != that.size()) {
       return false;
     } else {
-      for for (int i = 0; i < uniqueBag.size(); i++) {
-
+      BagOfWords thisRewrite = this.bagDuplicateRewrite();
+      BagOfWords thatRewrite = that.bagDuplicateRewrite();
+      if (thisRewrite.size() != thatRewrite.size()) {
+        return false;
+      } else {
+        for (int i = 0; i < thisRewrite.size(); i++) {
+          if (!thatRewrite.contains(thisRewrite.get(i))){ return false; }
+        }
+        return true;
+      }
     }
-
-
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(head, tail);
   }
-  */
+
 }

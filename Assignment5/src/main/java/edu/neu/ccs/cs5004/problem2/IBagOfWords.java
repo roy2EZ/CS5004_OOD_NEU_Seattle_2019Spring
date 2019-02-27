@@ -2,7 +2,8 @@ package edu.neu.ccs.cs5004.problem2;
 
 
 /**
- * Represents a List of Integers.
+ * Represents a BagOfWords interface with homework required method.
+ *
  * @author Rongyi Chen
  * @version 1.0
  */
@@ -40,6 +41,5 @@ public interface IBagOfWords {
    * @return true if string in the list and false otherwise
    */
   Boolean contains(String element);
-
 
 }

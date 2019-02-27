@@ -1,5 +1,12 @@
 package edu.neu.ccs.cs5004.problem2;
 
+/**
+ * Represents abstract BagOfWords ADT
+ * with some helper methods and two constructors
+ *
+ * @author Rongyi Chen
+ * @version 1.0
+ */
 public abstract class AbstractBagOfWords implements IBagOfWords {
   protected int size = 0;
 

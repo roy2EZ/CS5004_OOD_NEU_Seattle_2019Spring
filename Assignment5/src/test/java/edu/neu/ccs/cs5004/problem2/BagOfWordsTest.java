@@ -172,4 +172,31 @@ public class BagOfWordsTest {
     BagOfWords copyBag = originBag.bagClone();
     assertEquals("BagOfWords[Python, C, Java, Java, C, C]", copyBag.toString());
   }
+
+  @Test
+  public void equals() {
+
+    // empty bags equal
+    BagOfWords emptyBag = new BagOfWords();
+    assertTrue(emptyBag.equals(tedBag));
+
+    // elements order doesn't bother
+    BagOfWords bag1 = new BagOfWords(new String[]{"a","b","c"});
+    BagOfWords bag2 = new BagOfWords(new String[]{"b","a","c"});
+    BagOfWords bag3 = new BagOfWords(new String[]{"a","c","b"});
+    assertTrue(bag1.equals(bag2));
+    assertTrue(bag1.equals(bag3));
+    assertTrue(bag2.equals(bag3));
+
+    // even with duplicated elements, if the amounts of duplication is same, the two Bag still equal
+    BagOfWords testBagA = new BagOfWords(
+        new String[]{"C", "Java", "C", "Java", "C", "Python"});
+    BagOfWords testBagB = new BagOfWords(
+        new String[]{"Python", "C", "Java", "Java", "C", "C"});
+    assertTrue(testBagA.equals(testBagB));
+
+    // other wise they are not equal
+    assertFalse(new BagOfWords(new String[]{"Python","Java","C"}).equals(testBagA));
+
+  }
 }
