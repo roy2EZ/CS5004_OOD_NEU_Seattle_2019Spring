@@ -1,5 +1,7 @@
 package edu.neu.ccs.cs5004.problem2.listOfStrings;
 
+import edu.neu.ccs.cs5004.problem1.listOfIntegers.Cons;
+import java.util.Objects;
 import sun.font.TrueTypeFont;
 
 public class ListOfStrings<String> extends AbstractListOfStrings<String> {
@@ -64,6 +66,20 @@ public class ListOfStrings<String> extends AbstractListOfStrings<String> {
       return temp.element;
     }
   }
+
+  public int indexOf(String str){
+    if(size==0) return -1;
+    else {
+      Node<String> current=head;
+      for(int i=0;i<size;i++){
+        if(current.element.equals(str))
+          return i;
+        else current=current.next;
+      }
+    }
+    return -1;
+  }
+
 
 
   public void add(int index,String string){
@@ -269,4 +285,29 @@ public class ListOfStrings<String> extends AbstractListOfStrings<String> {
     return this;
   }
 
+
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (!(o instanceof ListOfStrings)) {
+      return false;
+    }
+    ListOfStrings<String> that = (ListOfStrings<String>) o;
+    Boolean flag = true;
+    for (int i=0;i<this.size();i++) {
+      if(!this.get(i).equals(that.get(i))){
+        flag = false;
+        return flag;
+      }
+    }
+    return flag;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(head, tail);
+  }
 }

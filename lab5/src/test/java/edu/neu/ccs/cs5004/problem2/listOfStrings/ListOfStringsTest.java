@@ -244,4 +244,54 @@ public class ListOfStringsTest {
     assertEquals("[1,2,3,4]", testList.toString());
 
   }
+
+  @Test
+  public void indexOf() {
+    testList.add("I");
+    testList.add("really");
+    testList.add("love");
+    testList.add("Java");
+    testList.add("a");
+    testList.add("lot");
+    assertEquals(0,testList.indexOf("I"));
+    assertEquals(1,testList.indexOf("really"));
+    assertEquals(2,testList.indexOf("love"));
+    assertEquals(3,testList.indexOf("Java"));
+    assertEquals(4,testList.indexOf("a"));
+    assertEquals(5,testList.indexOf("lot"));
+
+  }
+
+
+
+  @Test
+  public void equals() {
+    testList.add("I");
+    testList.add("really");
+    testList.add("love");
+    testList.add("Java");
+    ListOfStrings testList2 = new ListOfStrings();
+    testList2.add("I");
+    testList2.add("really");
+    testList2.add("love");
+    testList2.add("Java");
+    assertTrue(testList.equals(testList2));
+
+    testList2.remove(3);
+    assertFalse(testList.equals(testList2));
+  }
+
+  @Test
+  public void removeIndex() {
+    testList.add("I");
+    testList.add("really");
+    testList.add("love");
+    testList.add("Java");
+    testList.add("a");
+    testList.add("lot");
+
+    assertEquals("love", testList.remove(2));
+    // after testList[2] is removed, "lot" became testList[4]
+    assertEquals("lot", testList.remove(4));
+  }
 }
