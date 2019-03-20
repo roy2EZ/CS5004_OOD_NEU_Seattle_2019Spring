@@ -1,4 +1,4 @@
-package edu.neu.ccs.cs5004.prob1;
+package edu.neu.ccs.cs5004.prob1And2;
 
 import static org.junit.Assert.*;
 

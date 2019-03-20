@@ -1,6 +1,4 @@
-package edu.neu.ccs.cs5004.prob1;
-
-import java.util.Objects;
+package edu.neu.ccs.cs5004.prob1And2;
 
 public class Vehicle implements IVehicle {
   protected String ID;
