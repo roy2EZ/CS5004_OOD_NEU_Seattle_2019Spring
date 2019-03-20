@@ -1,9 +1,17 @@
-package java.edu.neu.ccs.cs5004.prob1;
+package edu.neu.ccs.cs5004.prob1;
 
-public abstract class Vehicle implements IVehicle {
+import java.util.Objects;
+
+public class Vehicle implements IVehicle {
   protected String ID;
   protected Float aveSpeed;
   protected Float maxSpeed;
+
+  public Vehicle(String ID, Float aveSpeed, Float maxSpeed) {
+    this.ID = ID;
+    this.aveSpeed = aveSpeed;
+    this.maxSpeed = maxSpeed;
+  }
 
   public String getID() {
     return ID;
@@ -16,4 +24,5 @@ public abstract class Vehicle implements IVehicle {
   public Float getMaxSpeed() {
     return maxSpeed;
   }
+
 }
