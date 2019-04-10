@@ -2,7 +2,9 @@ package edu.neu.ccs.cs5004;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Collectors;
+import org.junit.Assert;
 
 public class StreamPractice {
 
@@ -31,10 +33,14 @@ public class StreamPractice {
     courseList.add(testStudent2);
     courseList.add(testStudent3);
 
-    // print all grades of student 1
-    for (Integer grade: testStudent1.getGrades()) {
-      System.out.println(grade);
+    // print all grades of each student
+    for (Student s: courseList) {
+      System.out.println(s.getName() + " grades:");
+      for (Integer grade: s.getGrades()) {
+        System.out.println(grade);
+      }
     }
+
 
     // the highest grade of all students in the course
     List<Integer> highestGradeOfEachStudent = new ArrayList<>();
@@ -42,13 +48,16 @@ public class StreamPractice {
       highestGradeOfEachStudent.add(s.getGrades().stream().mapToInt(g -> g).max().getAsInt());
     }
     Integer highestGrade = highestGradeOfEachStudent.stream().mapToInt(g -> g).max().getAsInt();
-
+    System.out.println("Student highest grade: " + highestGrade + "\n");
     // the average grade of all students
+
     List<Double> avgOfEachStudent = new ArrayList<>();
     for (Student s: courseList) {
       avgOfEachStudent.add(s.getGrades().stream().mapToInt(g -> g).average().getAsDouble());
+      System.out.format("%s's avg: %.2f \n", s.getName(), avgOfEachStudent.get(avgOfEachStudent.size() - 1));
     }
     Double totalAvgOfAll = avgOfEachStudent.stream().mapToDouble(g -> g).average().getAsDouble();
+    System.out.format("Average grade of all students: %.2f \n",totalAvgOfAll);
 
     // A list of students with grades above the average for the course
     List<Student> listOfStudentsWithGradesAboveAvg = new ArrayList<>();
@@ -57,12 +66,21 @@ public class StreamPractice {
         listOfStudentsWithGradesAboveAvg.add(student);
       }
     }
+    System.out.println("\nWho's avg grade is over total avg: ");
+    for (Student student: listOfStudentsWithGradesAboveAvg) {
+      System.out.println(student.getName());
+    }
 
     //A list of the students’ email addresses, if an email address is created by combining
     //the student’s login and “@husky.neu.edu”.
     List<Student> peopleWithStudentEmails = null;
     peopleWithStudentEmails = courseList.stream().filter((Student s) -> s.getLogin().contains("@husky.neu.edu")).collect(Collectors.toList());
 
+
+    Function<String, String> makeEmail = s -> s + "@husky.neu.edu";
+    String peterEmail = makeEmail.apply(testStudent1.getName().toLowerCase());
+    System.out.println("\nPeter's email address: " + peterEmail);
+    Assert.assertEquals("peter@husky.neu.edu", peterEmail);
   }
 
 }
