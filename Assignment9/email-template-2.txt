@@ -1,0 +1,11 @@
+From:insuranceCompany@ic.com
+To:[[email]]
+Subject: Insurance company – information about recent data breach
+Hello [[first_name]],
+I understand you’re looking for a competitive quote and am confident that I can assist you in that. 
+Our company, at [[city]], prides itself on an extensive history of getting people like you the best value for their time and money, and I wanted to arrange a time when we can talk and make that happen for you. 
+When would be most convenient for you? Please let me know.
+
+Sincerely,
+Insurance Company CEO
+Bob Smith

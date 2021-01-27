@@ -1,0 +1,21 @@
+Design Report
+ArgumentType.java: a wrapper class which contains category, templateName, outPath
+ReportGenerator.java: Run the main function and generator 500 emails or letter.
+IcsvReader.java: an interface which helpers read all the information from the .csv file.
+CsvReader.java: a java class which implements IcsvReader.java and use BufferedReader(Build-In) to get information. 
+CategoryClassifier.java: an java class use input arguments and return a new Argument Type.
+ErrorPrinter.java: a java class helps to print error if main arguments does not match.
+IErrorPrinter.java: an interface for ErrorPrinter.java
+ICategoryClassifier.java: an interface for CategoryClassifier.java
+ReadAndWriter.java read the given template and write an email or a letter on given directory (use Buildt-in BufferedReader and BufferedWriter).
+IReadAndWriter.java: an interface for ReadAndWriter.java.
+
+How programing run?
+First In the main method of Generator, we run CategoryClassifier to see if the client wants to produce letter or email. 
+Then we run CsvReader to obtain the sources information from .csv file. Then we run the ReadAndWriter to output 500 emails or 500 letters.
+
+Note: All the String manipulation part in the ReadAndWriter.java
+
+
+
+ 

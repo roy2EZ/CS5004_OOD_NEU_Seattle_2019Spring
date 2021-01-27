@@ -1,0 +1,16 @@
+[[first_name]] [[last_name]]
+[[address]], [[city]],
+[[county]], [[state]], [[zip]]
+([[email]])
+
+Dear [[first_name]] [[last_name]],
+Your billing information & updated paperwork.
+Thank you for insuring with our company. Your updated policy documents and billing schedule are now ready for review. You can review your billing activity, review your updated policy paperwork, and make changes to your policy by visiting our Online Service Center.
+As an Auto Pay customer, your payments will be deducted automatically according to your schedule — no manual payment is required.
+You can find additional information and FAQs about this incident at our website. If you have further questions, 
+you may call us at 866-852-8680.
+Thank you for your patience and your loyalty.
+
+Sincerely,
+Insurance Company CEO
+
